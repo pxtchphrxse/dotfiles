@@ -109,6 +109,7 @@ return packer.startup(function(use)
 
   -- Utils
   use 'karb94/neoscroll.nvim'
+  use 'folke/which-key.nvim'
   
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

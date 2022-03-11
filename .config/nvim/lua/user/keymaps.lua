@@ -66,8 +66,11 @@ keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
 -- Move text up and down
+keymap("n", "<M-j>", ":m .+1<CR>==", opts)
+keymap("n", "<M-k>", ":m .-2<CR>==", opts)
 keymap("v", "<M-j>", ":m .+1<CR>==", opts)
 keymap("v", "<M-k>", ":m .-2<CR>==", opts)
+-- paste without yank
 keymap("v", "p", '"_dP', opts)
 
 -- Visual Block --
@@ -84,7 +87,6 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 -- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 -- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 -- Telescope
--- keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts)
 keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts)
 keymap("n", "<leader>t", "<cmd>Telescope live_grep<cr>", opts)
 
