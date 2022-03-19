@@ -11,17 +11,26 @@ local diagnostics = null_ls.builtins.diagnostics
 null_ls.setup({
 	debug = false,
 	sources = {
-		formatting.prettier.with({
-			extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
-		}),
 		formatting.black.with({ extra_args = { "--fast" } }),
 		-- formatting.yapf,
 		formatting.stylua,
 		diagnostics.flake8,
-		diagnostics.eslint.with({
+		formatting.prettier_d_slim.with({
 			-- args = { "--stdin", "--stdin-filename", "%filepath", "--format", "json" },
 			condition = function(utils)
-				return utils.root_has_file({ ".eslintrc", ".eslintrc.js", ".eslintrc.json" })
+				return not utils.root_has_file({ ".eslintrc", ".eslintrc.js", ".eslintrc.json" })
+			end,
+		}),
+		formatting.eslint_d.with({
+			-- args = { "--stdin", "--stdin-filename", "%filepath", "--format", "json" },
+			condition = function(utils)
+				return  utils.root_has_file({ ".eslintrc", ".eslintrc.js", ".eslintrc.json" })
+			end,
+		}),
+		diagnostics.eslint_d.with({
+			-- args = { "--stdin", "--stdin-filename", "%filepath", "--format", "json" },
+			condition = function(utils)
+				return  utils.root_has_file({ ".eslintrc", ".eslintrc.js", ".eslintrc.json" })
 			end,
 		}),
 	},

@@ -15,6 +15,7 @@ alias lld "ll -D"
 alias llda "lla -D"
 alias vim nvim
 alias vim. "vim ."
+alias v vim
 git_aliases
 yarn_aliases
 alias code "code-insiders"

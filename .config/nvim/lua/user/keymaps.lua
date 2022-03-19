@@ -1,12 +1,12 @@
 local opts = { noremap = true, silent = true }
 
--- local term_opts = { silent = true }
+local term_opts = { silent = true }
 
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
 
 --Remap space as leader key
-keymap("", "<Space>", "<Nop>", opts)
+-- keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -19,11 +19,27 @@ vim.g.maplocalleader = " "
 --   command_mode = "c",
 
 -- Normal --
-keymap("n", "zf", "<cmd>set foldmethod=expr<CR>", opts)
-keymap("n", "zs", "<cmd>set foldmethod=manual<CR>", opts)
+-- keymap("n", "zf", "<cmd>set foldmethod=expr<CR>", opts)
+-- keymap("n", "zs", "<cmd>set foldmethod=manual<CR>", opts)
 
--- delete without yank
+-- search and highlight current
+keymap("n", "*", "*N", opts)
+
+-- without yank
 keymap("n", "x", '"_x', opts)
+keymap("n", "X", '"_X', opts)
+keymap("n", "d", '"_d', opts)
+keymap("n", "D", '"_D', opts)
+keymap("n", "c", '"_c', opts)
+keymap("n", "C", '"_C', opts)
+
+-- with yank
+keymap("n", "<leader>x", "x", opts)
+keymap("n", "<leader>X", "X", opts)
+keymap("n", "<leader>d", "d", opts)
+keymap("n", "<leader>D", "D", opts)
+keymap("n", "<leader>c", "c", opts)
+keymap("n", "<leader>C", "C", opts)
 
 -- Better Tab navigation
 keymap("n", "te", ":tabnew<CR>", opts)
@@ -57,8 +73,11 @@ keymap("n", "<M-j>", "<Esc>:m .+1<CR>==gi", opts)
 keymap("n", "<M-k>", "<Esc>:m .-2<CR>==gi", opts)
 
 -- Insert --
--- Press jj fast to enter
-keymap("i", "jj", "<ESC>", opts)
+keymap("i", "jj", "<ESC>", opts) -- Press jj fast to enter
+keymap("i", "<C-v>", '<C-r>"', opts) -- paste from last yank
+
+-- Command --
+keymap("c", "<C-v>", '<C-r>"', term_opts) -- paste from last yank
 
 -- Visual --
 -- Stay in indent mode
@@ -70,8 +89,27 @@ keymap("n", "<M-j>", ":m .+1<CR>==", opts)
 keymap("n", "<M-k>", ":m .-2<CR>==", opts)
 keymap("v", "<M-j>", ":m .+1<CR>==", opts)
 keymap("v", "<M-k>", ":m .-2<CR>==", opts)
--- paste without yank
+
+-- replace without yank
 keymap("v", "p", '"_dP', opts)
+
+-- without yank
+keymap("v", "x", '"_x', opts)
+keymap("v", "X", '"_X', opts)
+keymap("v", "d", '"_d', opts)
+keymap("v", "D", '"_D', opts)
+keymap("v", "c", '"_c', opts)
+keymap("v", "C", '"_C', opts)
+
+-- with yank
+keymap("v", "<leader>x", "x", opts)
+keymap("v", "<leader>X", "X", opts)
+keymap("v", "<leader>d", "d", opts)
+keymap("v", "<leader>D", "D", opts)
+keymap("v", "<leader>c", "c", opts)
+keymap("v", "<leader>C", "C", opts)
+
+keymap("v", "y", "ygv<ESC>", opts)
 
 -- Visual Block --
 -- Move text up and down
@@ -87,11 +125,5 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 -- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 -- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 -- Telescope
-keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts)
-keymap("n", "<leader>t", "<cmd>Telescope live_grep<cr>", opts)
-
--- NvimTree
-keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
-
--- Format
-keymap("n", "<C-S-f>", ":Format", opts)
+-- keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts)
+-- keymap("n", "<leader>t", "<cmd>Telescope live_grep<cr>", opts)

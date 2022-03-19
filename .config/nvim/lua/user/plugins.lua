@@ -44,7 +44,6 @@ return packer.startup(function(use)
 	use("wbthomason/packer.nvim") -- Have packer manage itself
 	use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used by lots of plugins
-	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
 	use("numToStr/Comment.nvim") -- Easily comment stuff
 
 	-- Nvim-Tree Explorer
@@ -58,6 +57,8 @@ return packer.startup(function(use)
 	use("hrsh7th/cmp-cmdline")
 	use("hrsh7th/cmp-nvim-lsp")
 	use("saadparwaiz1/cmp_luasnip")
+	-- copilot
+	use("github/copilot.vim")
 
 	use("L3MON4D3/LuaSnip")
 	use("rafamadriz/friendly-snippets")
@@ -67,12 +68,13 @@ return packer.startup(function(use)
 	use("lunarvim/colorschemes")
 	use("folke/tokyonight.nvim")
 	use("artanikin/vim-synthwave84")
-  use 'olimorris/onedarkpro.nvim'
+	use("olimorris/onedarkpro.nvim")
 
 	-- LSP
 	use("neovim/nvim-lspconfig")
 	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
 	use("glepnir/lspsaga.nvim")
+	use("onsails/lspkind-nvim")
 
 	-- Get extra JSON schemas
 	use({ "b0o/SchemaStore.nvim" })
@@ -84,6 +86,7 @@ return packer.startup(function(use)
 	use("nvim-telescope/telescope.nvim")
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 	use("nvim-telescope/telescope-media-files.nvim")
+	use("ahmedkhalf/project.nvim")
 
 	-- Treesitter
 	use({
@@ -93,6 +96,10 @@ return packer.startup(function(use)
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 	use("p00f/nvim-ts-rainbow")
 	use("nvim-treesitter/playground")
+	use("windwp/nvim-ts-autotag")
+	use("andymass/vim-matchup")
+	use("windwp/nvim-autopairs")
+	use("p00f/nvim-ts-rainbow")
 
 	-- Git
 	use("lewis6991/gitsigns.nvim")
@@ -103,14 +110,20 @@ return packer.startup(function(use)
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 	})
 	use("tpope/vim-fugitive")
-  use ('kdheepak/tabline.nvim',{
-    requires = {{'kyazdani42/nvim-web-devicons', opt = true }}
-  })
+	use("kdheepak/tabline.nvim", {
+		requires = { { "kyazdani42/nvim-web-devicons", opt = true } },
+	})
 
-  -- Utils
-  use 'karb94/neoscroll.nvim'
-  use 'folke/which-key.nvim'
-  
+	-- Utils
+	use("karb94/neoscroll.nvim")
+	use("folke/which-key.nvim")
+
+	-- alpha
+	use("goolord/alpha-nvim")
+
+	-- speed up nvim start time
+	use("lewis6991/impatient.nvim")
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
