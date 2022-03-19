@@ -1,6 +1,5 @@
 local M = {}
 
--- TODO: backfill this to template
 M.setup = function()
 	local signs = {
 		{ name = "DiagnosticSignError", text = "" },
@@ -15,7 +14,7 @@ M.setup = function()
 
 	local config = {
 		-- disable virtual text
-		virtual_text = false,
+		virtual_text = true,
 		-- show signs
 		signs = {
 			active = signs,
@@ -79,7 +78,6 @@ local function lsp_keymaps(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
-	local format_command = [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 	vim.cmd([[ command! FormatSync execute 'lua vim.lsp.buf.formatting_sync()' ]])
 
 	if client.name == "tsserver" then
