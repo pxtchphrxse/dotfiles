@@ -104,18 +104,14 @@ return packer.startup(function(use)
 	-- Git
 	use("lewis6991/gitsigns.nvim")
 
-	-- Lualine & Tabline
+	-- Lualine
 	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 	})
 	use("tpope/vim-fugitive")
-	use("kdheepak/tabline.nvim", {
-		requires = { { "kyazdani42/nvim-web-devicons", opt = true } },
-	})
 
 	-- Utils
-	use("karb94/neoscroll.nvim")
 	use("folke/which-key.nvim")
 
 	-- alpha
