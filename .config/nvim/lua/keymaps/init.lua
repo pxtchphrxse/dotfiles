@@ -102,12 +102,12 @@ keymap("v", "c", '"_c', opts)
 keymap("v", "C", '"_C', opts)
 
 -- with yank
-keymap("v", "<leader>x", "x", opts)
-keymap("v", "<leader>X", "X", opts)
-keymap("v", "<leader>d", "d", opts)
-keymap("v", "<leader>D", "D", opts)
-keymap("v", "<leader>c", "c", opts)
-keymap("v", "<leader>C", "C", opts)
+keymap("v", "<space>x", "x", opts)
+keymap("v", "<space>X", "X", opts)
+keymap("v", "<space>d", "d", opts)
+keymap("v", "<space>D", "D", opts)
+keymap("v", "<space>c", "c", opts)
+keymap("v", "<space>C", "C", opts)
 
 keymap("v", "y", "ygv<ESC>", opts)
 

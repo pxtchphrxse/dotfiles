@@ -48,9 +48,6 @@ vim.cmd([[
 --   augroup end
 -- ]])
 
--- fix does't work in other files
-vim.cmd("hi CursorLine term=bold cterm=bold guibg=Grey32")
-
 -- Autoformat
 -- augroup _lsp
 --   autocmd!
