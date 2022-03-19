@@ -73,7 +73,7 @@ return packer.startup(function(use)
 	-- LSP
 	use("neovim/nvim-lspconfig")
 	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
-	use("glepnir/lspsaga.nvim")
+	use("tami5/lspsaga.nvim")
 	use("onsails/lspkind-nvim")
 
 	-- Get extra JSON schemas
