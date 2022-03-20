@@ -16,6 +16,6 @@ require("whichkey-config")
 require("project-config")
 require("alpha-config")
 require("impatient-config")
+require("colorizer-config")
 
-require("copilot-config")
 require("autocommands")

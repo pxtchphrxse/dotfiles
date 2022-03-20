@@ -100,6 +100,8 @@ return packer.startup(function(use)
 	use("andymass/vim-matchup")
 	use("windwp/nvim-autopairs")
 
+	use("norcalli/nvim-colorizer.lua")
+
 	-- Git
 	use("lewis6991/gitsigns.nvim")
 
