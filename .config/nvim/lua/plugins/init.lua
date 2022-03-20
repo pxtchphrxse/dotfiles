@@ -50,19 +50,6 @@ return packer.startup(function(use)
 	use("kyazdani42/nvim-web-devicons")
 	use("kyazdani42/nvim-tree.lua")
 
-	-- cmp snippets (autocomplete)
-	use("hrsh7th/nvim-cmp")
-	use("hrsh7th/cmp-buffer")
-	use("hrsh7th/cmp-path")
-	use("hrsh7th/cmp-cmdline")
-	use("hrsh7th/cmp-nvim-lsp")
-	use("saadparwaiz1/cmp_luasnip")
-	-- copilot
-	use("github/copilot.vim")
-
-	use("L3MON4D3/LuaSnip")
-	use("rafamadriz/friendly-snippets")
-
 	-- Themes
 	use("navarasu/onedark.nvim")
 	use("lunarvim/colorschemes")
@@ -75,6 +62,19 @@ return packer.startup(function(use)
 	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
 	use("tami5/lspsaga.nvim")
 	use("onsails/lspkind-nvim")
+
+	-- cmp snippets (autocomplete)
+	use("hrsh7th/nvim-cmp")
+	use("hrsh7th/cmp-buffer")
+	use("hrsh7th/cmp-path")
+	use("hrsh7th/cmp-cmdline")
+	use("hrsh7th/cmp-nvim-lsp")
+	use("saadparwaiz1/cmp_luasnip")
+	-- copilot
+	use("github/copilot.vim")
+
+	use("L3MON4D3/LuaSnip")
+	use("rafamadriz/friendly-snippets")
 
 	-- Get extra JSON schemas
 	use({ "b0o/SchemaStore.nvim" })
@@ -99,7 +99,6 @@ return packer.startup(function(use)
 	use("windwp/nvim-ts-autotag")
 	use("andymass/vim-matchup")
 	use("windwp/nvim-autopairs")
-	use("p00f/nvim-ts-rainbow")
 
 	-- Git
 	use("lewis6991/gitsigns.nvim")
