@@ -114,6 +114,7 @@ return packer.startup(function(use)
 
 	-- Utils
 	use("folke/which-key.nvim")
+	use("ggandor/lightspeed.nvim")
 
 	-- alpha
 	use("goolord/alpha-nvim")

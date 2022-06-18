@@ -17,5 +17,6 @@ require("project-config")
 require("alpha-config")
 require("impatient-config")
 require("colorizer-config")
-
+require("lightspeed-config")
+require("copilot-config")
 require("autocommands")

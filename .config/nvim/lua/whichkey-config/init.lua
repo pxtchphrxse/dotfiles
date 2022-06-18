@@ -144,7 +144,7 @@ local mappings = {
 			"Workspace Diagnostics",
 		},
 		f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
-		F = { "<cmd>Lspsaga lsp_finder<cr>", "Format" },
+		F = { "<cmd>Lspsaga lsp_finder<cr>", "Finder" },
 		i = { "<cmd>LspInfo<cr>", "Info" },
 		I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
 		j = {
@@ -158,6 +158,7 @@ local mappings = {
 		l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
 		q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
 		r = { "<cmd>Lspsaga rename<cr>", "Rename" },
+		R = { "<cmd>LspRestart<cr>", "Restart LSP" },
 		s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
 		S = {
 			"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",

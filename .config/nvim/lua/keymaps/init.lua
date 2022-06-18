@@ -41,6 +41,7 @@ keymap("n", "<leader>C", "C", opts)
 
 -- Better Tab navigation
 keymap("n", "te", ":tabnew<CR>", opts)
+keymap("n", "tr", ":LualineRenameTab ", { silent = false, noremap = true })
 keymap("n", "<Tab>", ":tabnext<CR>", opts)
 keymap("n", "<S-Tab>", ":tabprev<CR>", opts)
 
