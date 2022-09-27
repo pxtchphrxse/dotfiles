@@ -122,6 +122,19 @@ return packer.startup(function(use)
 	-- speed up nvim start time
 	use("lewis6991/impatient.nvim")
 
+	-- session manager
+	--  ({
+	-- 	"folke/persistence.nvim",
+	-- 	event = "BufReadPre", -- this will only start session saving when an actual file was opened
+	-- 	module = "persistence",
+	-- 	config = function()
+	-- 		require("persistence").setup({
+	-- 			dir = vim.fn.expand(vim.fn.stdpath("config") .. "/session/"),
+	-- 			options = { "buffers", "curdir", "tabpages", "winsize" },
+	-- 		})
+	-- 	end,
+	-- })
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
