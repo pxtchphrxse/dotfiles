@@ -5,5 +5,5 @@ function tmux_aliases
   alias tls "t ls"
   alias tks "t kill-session -t"
   alias ts "t new -s"
-  alias ide "t new-window && t split-pane"
+  alias ide "t new-window -c $PWD && t split-pane -c $PWD"
 end

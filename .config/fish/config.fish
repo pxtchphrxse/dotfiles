@@ -17,6 +17,8 @@ alias llda "lla -D"
 alias vim nvim
 alias vim. "vim ."
 alias v vim
+alias lv lvim
+alias f fish
 git_aliases
 yarn_aliases
 tmux_aliases
@@ -26,3 +28,4 @@ set -gx EDTIOR nvim
 
 # NVM
 load_nvm
+rvm default
