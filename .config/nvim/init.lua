@@ -1,6 +1,6 @@
 require("options")
 require("keymaps")
-require("plugins")
+require("plugins-config")
 require("colorscheme-config")
 require("lsp")
 require("cmp-config")
