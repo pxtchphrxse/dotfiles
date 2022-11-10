@@ -1,8 +1,6 @@
-local status_ok, project = pcall(require, "project_nvim")
-if not status_ok then
-	return
-end
-project.setup({
+local M = {}
+
+local config = {
 	---@usage set to false to disable project.nvim.
 	--- This is on by default since it's currently the expected behavior.
 	active = true,
@@ -38,11 +36,18 @@ project.setup({
 	---@type string
 	---@usage path to store the project history for use in telescope
 	datapath = vim.fn.stdpath("data"),
-})
+}
 
-local tele_status_ok, telescope = pcall(require, "telescope")
-if not tele_status_ok then
-	return
+function M.setup()
+local status_ok, project = pcall(require, "project_nvim")
+  if not status_ok then
+    return
+  end
+  project.setup(config)
+  local tele_status_ok, telescope = pcall(require, "telescope")
+  if not tele_status_ok then
+    return
+  end
+
+  telescope.load_extension("projects")
 end
-
-telescope.load_extension("projects")

@@ -1,11 +1,21 @@
 -- set keyboard layout to EN on insert leave
-vim.cmd([[
-  function! SetUsLayout()
-    silent !xkbswitch -se ABC > /dev/null
-  endfunction
+-- vim.cmd([[
+--   function! SetUsLayout()
+--     silent !xkbswitch -se ABC > /dev/null
+--   endfunction
 
-  autocmd InsertLeave * call SetUsLayout()
-]])
+--   autocmd InsertLeave * call SetUsLayout()
+-- ]])
+
+vim.api.nvim_create_augroup("_general_settings", {})
+vim.api.nvim_create_autocmd("TextYankPost", {
+	group = "_general_settings",
+	pattern = "*",
+	desc = "Highlight text on yank",
+	callback = function()
+		require("vim.highlight").on_yank({ higroup = "Search", timeout = 200 })
+	end,
+})
 
 -- vim.cmd([[
 --   function! AutoWipeBuf()

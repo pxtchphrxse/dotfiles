@@ -81,6 +81,14 @@ M.on_attach = function(client, bufnr)
 		client.resolved_capabilities.document_formatting = false
 	end
 
+	if client.name == "sumneko_lua" then
+		client.resolved_capabilities.document_formatting = false
+	end
+
+	if client.name == "jsonls" then
+		client.resolved_capabilities.document_formatting = false
+	end
+
 	if client.resolved_capabilities.document_formatting then
 		vim.cmd([[
               augroup LspFormatting

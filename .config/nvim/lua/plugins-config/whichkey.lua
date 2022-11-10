@@ -1,9 +1,6 @@
-local status_ok, which_key = pcall(require, "which-key")
-if not status_ok then
-	return
-end
+local M = {}
 
-local setup = {
+local config = {
 	plugins = {
 		marks = true, -- shows a list of your marks on ' and `
 		registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
@@ -43,7 +40,7 @@ local setup = {
 		scroll_up = "<c-u>", -- binding to scroll up inside the popup
 	},
 	window = {
-		border = "rounded", -- none, single, double, shadow
+		border = "single", -- none, single, double, shadow
 		position = "bottom", -- bottom, top
 		margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
 		padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
@@ -79,7 +76,7 @@ local opts = {
 }
 
 local mappings = {
-	["/"] = { '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', "Comment" },
+	["/"] = { '<cmd>lua require("Comment.api").toggle.linewise.current()<CR>', "Comment" },
 	["a"] = { "<cmd>Alpha<cr>", "Alpha" },
 	["b"] = {
 		"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
@@ -171,10 +168,20 @@ local mappings = {
 		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
 		h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
 		M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-		r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+		r = { [[<CMD>lua require("persistence").load()<CR>]], "Restore Session" },
 		R = { "<cmd>Telescope registers<cr>", "Registers" },
 		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
 		C = { "<cmd>Telescope commands<cr>", "Commands" },
+	},
+	t = {
+		name = "Trouble",
+		r = { "<cmd>Trouble lsp_references<cr>", "References" },
+		f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
+		d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
+		q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
+		l = { "<cmd>Trouble loclist<cr>", "LocationList" },
+		w = { "<cmd>Trouble workspace_diagnostics<cr>", "Wordspace Diagnostics" },
+		t = { "<cmd>TodoTrouble<cr>", "Todo List" },
 	},
 }
 
@@ -187,9 +194,19 @@ local vopts = {
 	nowait = false, -- use `nowait` when creating keymaps
 }
 local vmappings = {
-	["/"] = { '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', "Comment" },
+	["/"] = { '<ESC><CMD>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>', "Comment" },
+	["?"] = { "<ESC><CMD>lua require('Comment.api').toggle.blockwise(vim.fn.visualmode())<CR>", "Block Comment" },
 }
 
-which_key.setup(setup)
-which_key.register(mappings, opts)
-which_key.register(vmappings, vopts)
+function M.setup()
+	local status_ok, which_key = pcall(require, "which-key")
+	if not status_ok then
+		return
+	end
+
+	which_key.setup(config)
+	which_key.register(mappings, opts)
+	which_key.register(vmappings, vopts)
+end
+
+return M

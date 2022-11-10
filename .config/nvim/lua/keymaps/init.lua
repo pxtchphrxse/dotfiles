@@ -46,14 +46,10 @@ keymap("n", "<Tab>", ":tabnext<CR>", opts)
 keymap("n", "<S-Tab>", ":tabprev<CR>", opts)
 
 -- Better window navigation
-keymap("n", "sh", "<C-w>h", opts)
-keymap("n", "sj", "<C-w>j", opts)
-keymap("n", "sk", "<C-w>k", opts)
-keymap("n", "sl", "<C-w>l", opts)
-keymap("n", "sv", "<C-w>v", opts)
-keymap("n", "ss", "<C-w>s", opts)
-keymap("n", "sq", "<C-w>q", opts)
-keymap("n", "<S-q>", ":bw<CR>", opts)
+keymap("n", "<C-h>", "<C-w>h", opts)
+keymap("n", "<C-j>", "<C-w>j", opts)
+keymap("n", "<C-k>", "<C-w>k", opts)
+keymap("n", "<C-l>", "<C-w>l", opts)
 
 keymap("n", "<C-n>", ":nohl<CR>", opts)
 
