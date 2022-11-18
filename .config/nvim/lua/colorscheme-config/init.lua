@@ -1,4 +1,4 @@
-local colorscheme = "onedarker"
+local colorscheme = "tokyonight"
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 vim.cmd("hi Search guifg=#abb2bf guibg=#5e81ac")

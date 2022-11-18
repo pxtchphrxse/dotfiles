@@ -44,6 +44,8 @@ return packer.startup(function(use)
 	use("wbthomason/packer.nvim") -- Have packer manage itself
 	use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used by lots of plugins
+	use("tpope/vim-repeat")
+	use("tpope/vim-surround")
 	use({
 		"numToStr/Comment.nvim",
 		event = "BufRead",
@@ -84,6 +86,12 @@ return packer.startup(function(use)
 	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
 	use("tami5/lspsaga.nvim")
 	use("onsails/lspkind-nvim")
+	use({
+		"j-hui/fidget.nvim",
+		config = function()
+			require("fidget").setup()
+		end,
+	})
 
 	-- cmp snippets (autocomplete)
 	use("hrsh7th/nvim-cmp")
@@ -92,6 +100,11 @@ return packer.startup(function(use)
 	use("hrsh7th/cmp-cmdline")
 	use("hrsh7th/cmp-nvim-lsp")
 	use("saadparwaiz1/cmp_luasnip")
+	use({
+		"hrsh7th/cmp-nvim-lsp-signature-help",
+		requires = "hrsh7th/nvim-cmp",
+		event = "InsertEnter",
+	})
 	-- copilot
 	-- use("github/copilot.vim")
 

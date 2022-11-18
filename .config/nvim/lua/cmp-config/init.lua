@@ -97,6 +97,7 @@ cmp.setup({
 		{ name = "path" },
 		{ name = "luasnip" },
 		{ name = "nvim_lua" },
+		{ name = "nvim_lsp_signature_help" },
 	},
 	confirm_opts = {
 		behavior = cmp.ConfirmBehavior.Replace,
@@ -107,7 +108,6 @@ cmp.setup({
 		documentation = cmp.config.window.bordered(),
 	},
 	experimental = {
-		ghost_text = true,
-		native_menu = false,
+		ghost_text = false,
 	},
 })

@@ -45,7 +45,7 @@ end
 
 local function lsp_highlight_document(client)
 	-- Set autocommands conditional on server_capabilities
-	if client.resolved_capabilities.document_highlight then
+	if client.server_capabilities.document_highlight then
 		vim.api.nvim_exec(
 			[[
       augroup lsp_document_highlight
@@ -63,6 +63,7 @@ local function lsp_keymaps(bufnr)
 	local opts = { noremap = true, silent = true }
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
+	vim.api.nvim_buf_set_keymap(bufnr, "n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>Lspsaga hover_doc<cr>", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-k>", "<cmd>Lspsaga signature_help<CR>", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", "<cmd>Lspsaga implement<CR>", opts)
@@ -74,28 +75,31 @@ local function lsp_keymaps(bufnr)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opts)
 end
 
+local lsp_formatting = function(bufnr)
+	vim.lsp.buf.format({
+		filter = function(client)
+			-- only format with null-ls
+			return client.name == "null-ls"
+		end,
+		bufnr = bufnr,
+	})
+end
+
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
 M.on_attach = function(client, bufnr)
-	vim.cmd([[ command! FormatSync execute 'lua vim.lsp.buf.formatting_sync()' ]])
-
-	if client.name == "tsserver" then
-		client.resolved_capabilities.document_formatting = false
-	end
-
-	if client.name == "sumneko_lua" then
-		client.resolved_capabilities.document_formatting = false
-	end
-
-	if client.name == "jsonls" then
-		client.resolved_capabilities.document_formatting = false
-	end
-
-	if client.resolved_capabilities.document_formatting then
-		vim.cmd([[
-              augroup LspFormatting
-                  autocmd! * <buffer>
-                  autocmd BufWritePre <buffer> <cmd>FormatSync<CR>
-              augroup END
-            ]])
+	vim.api.nvim_create_user_command("Format", function()
+		lsp_formatting(bufnr)
+	end, { force = true })
+	if client.supports_method("textDocument/formatting") then
+		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			group = augroup,
+			buffer = bufnr,
+			callback = function()
+				lsp_formatting(bufnr)
+			end,
+		})
 	end
 
 	lsp_keymaps(bufnr)
@@ -109,6 +113,6 @@ if not status_ok then
 	return
 end
 
-M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+M.capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
 return M

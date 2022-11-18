@@ -78,9 +78,32 @@ local opts = {
 local mappings = {
 	["/"] = { '<cmd>lua require("Comment.api").toggle.linewise.current()<CR>', "Comment" },
 	["a"] = { "<cmd>Alpha<cr>", "Alpha" },
-	["b"] = {
-		"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-		"Buffers",
+	b = {
+		name = "Buffers",
+		j = { "<cmd>BufferLinePick<cr>", "Jump" },
+		f = { "<cmd>Telescope buffers<cr>", "Find" },
+		b = { "<cmd>BufferLineCyclePrev<cr>", "Previous" },
+		n = { "<cmd>BufferLineCycleNext<cr>", "Next" },
+		-- w = { "<cmd>BufferWipeout<cr>", "Wipeout" }, -- TODO: implement this for bufferline
+		e = {
+			"<cmd>BufferLinePickClose<cr>",
+			"Pick which buffer to close",
+		},
+		h = { "<cmd>BufferLineCloseLeft<cr>", "Close all to the left" },
+		l = {
+			"<cmd>BufferLineCloseRight<cr>",
+			"Close all to the right",
+		},
+		D = {
+			"<cmd>BufferLineSortByDirectory<cr>",
+			"Sort by directory",
+		},
+		L = {
+			"<cmd>BufferLineSortByExtension<cr>",
+			"Sort by language",
+		},
+		t = { "<cmd>tabe<cr>", "New Tab" },
+		x = { "<cmd>tabc<cr>", "Close Tab" },
 	},
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 	["w"] = { "<cmd>w!<CR>", "Save" },
@@ -95,6 +118,7 @@ local mappings = {
 	["F"] = { "<cmd>Telescope live_grep<cr>", "Find Text" },
 	["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
 	["r"] = { "<cmd>Telescope oldfiles hidden=true<cr>", "Recent Files" },
+	["x"] = { "<cmd>bd<cr>", "Close Buffer" },
 	["z"] = { "<cmd>set foldexpr=nvim_treesitter#foldexpr()<cr>", "Set Fold" },
 
 	p = {
@@ -140,7 +164,10 @@ local mappings = {
 			"<cmd>Telescope lsp_workspace_diagnostics<cr>",
 			"Workspace Diagnostics",
 		},
-		f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
+		f = {
+			"<cmd>Format<cr>",
+			"Format",
+		},
 		F = { "<cmd>Lspsaga lsp_finder<cr>", "Finder" },
 		i = { "<cmd>LspInfo<cr>", "Info" },
 		I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
