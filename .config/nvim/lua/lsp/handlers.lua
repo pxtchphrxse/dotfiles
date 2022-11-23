@@ -89,7 +89,13 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 M.on_attach = function(client, bufnr)
 	vim.api.nvim_create_user_command("Format", function()
-		lsp_formatting(bufnr)
+		vim.lsp.buf.format({
+			filter = function(_client)
+				-- only format with null-ls
+				return _client.name == "null-ls"
+			end,
+			async = true,
+		})
 	end, { force = true })
 	if client.supports_method("textDocument/formatting") then
 		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })

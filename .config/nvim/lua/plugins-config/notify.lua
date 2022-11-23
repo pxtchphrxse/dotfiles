@@ -5,7 +5,7 @@ local config = {
 	on_config_done = nil,
 	opts = {
 		---@usage Animation style one of { "fade", "slide", "fade_in_slide_out", "static" }
-		stages = "slide",
+		stages = "fade_in_slide_out",
 
 		---@usage Function called when a new window is opened, use for changing win settings/config
 		on_open = nil,

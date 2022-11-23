@@ -3,6 +3,13 @@ if not status_ok then
 	return
 end
 
+local vue3_add_project = function()
+	local file = io.open(vim.fn.stdpath("config") .. "/vue3-project.txt", "a+b")
+	file:write(vim.fn.getcwd() .. "\n")
+	file:close()
+end
+vim.api.nvim_create_user_command("AddVue3Project", vue3_add_project, { force = true })
+
 -- Register a handler that will be called for all installed servers.
 -- Alternatively, you may also register handlers on specific server instances instead (see example below).
 lsp_installer.on_server_ready(function(server)
@@ -24,6 +31,16 @@ lsp_installer.on_server_ready(function(server)
 	if server.name == "pyright" then
 		local pyright_opts = require("lsp.settings.pyright")
 		opts = vim.tbl_deep_extend("force", pyright_opts, opts)
+	end
+
+	if server.name == "vuels" then
+		local vuels_opts = require("lsp.settings.vuels")
+		opts = vim.tbl_deep_extend("force", vuels_opts, opts)
+	end
+
+	if server.name == "volar" then
+		local volar_opts = require("lsp.settings.volar")
+		opts = vim.tbl_deep_extend("force", volar_opts, opts)
 	end
 
 	-- if server.name == "tsserver" then
