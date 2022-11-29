@@ -42,7 +42,7 @@ local config = {
 	},
 	git = {
 		enable = true,
-		ignore = false,
+		ignore = true,
 		timeout = 200,
 	},
 	view = {
@@ -53,11 +53,11 @@ local config = {
 		mappings = {
 			custom_only = false,
 			list = {
-        { key = { "l", "<CR>", "o" }, action = "edit", mode = "n" },
-        { key = "h", action = "close_node" },
-        { key = "v", action = "vsplit" },
-        { key = "C", action = "cd" },
-      },
+				{ key = { "l", "<CR>", "o" }, action = "edit", mode = "n" },
+				{ key = "h", action = "close_node" },
+				{ key = "v", action = "vsplit" },
+				{ key = "C", action = "cd" },
+			},
 		},
 		number = false,
 		relativenumber = false,
@@ -154,9 +154,9 @@ function M.setup()
 		return
 	end
 
---	for opt, val in pairs(config) do
---		vim.g["nvim_tree_" .. opt] = val
---	end
+	--	for opt, val in pairs(config) do
+	--		vim.g["nvim_tree_" .. opt] = val
+	--	end
 
 	nvim_tree.setup(config)
 end

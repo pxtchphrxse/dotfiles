@@ -188,6 +188,7 @@ local mappings = {
 			"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
 			"Workspace Symbols",
 		},
+		n = { "<cmd>NullLsInfo<cr>", "NullLs Info" },
 	},
 	s = {
 		name = "Search",
