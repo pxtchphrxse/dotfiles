@@ -7,6 +7,7 @@ function M.setup()
 	end
 
 	telescope.load_extension("media_files")
+	telescope.load_extension("lazygit")
 
 	local actions = require("telescope.actions")
 
