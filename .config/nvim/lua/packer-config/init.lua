@@ -167,6 +167,7 @@ return packer.startup(function(use)
 		end,
 		event = "BufRead",
 	})
+	use({ "kdheepak/lazygit.nvim" })
 
 	-- Lualine
 	use({

@@ -82,8 +82,10 @@ local mappings = {
 		name = "Buffers",
 		j = { "<cmd>BufferLinePick<cr>", "Jump" },
 		f = { "<cmd>Telescope buffers<cr>", "Find" },
-		b = { "<cmd>BufferLineCyclePrev<cr>", "Previous" },
-		n = { "<cmd>BufferLineCycleNext<cr>", "Next" },
+		p = { "<cmd>BufferLineMovePrev<cr>", "Move Left" },
+		n = { "<cmd>BufferLineMoveNext<cr>", "Move Right" },
+		-- b = { "<cmd>BufferLineCyclePrev<cr>", "Previous" },
+		-- n = { "<cmd>BufferLineCycleNext<cr>", "Next" },
 		-- w = { "<cmd>BufferWipeout<cr>", "Wipeout" }, -- TODO: implement this for bufferline
 		e = {
 			"<cmd>BufferLinePickClose<cr>",
@@ -132,7 +134,7 @@ local mappings = {
 
 	g = {
 		name = "Git",
-		g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
+		g = { "<cmd>LazyGit<CR>", "Lazygit" },
 		j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
 		k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
 		l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
