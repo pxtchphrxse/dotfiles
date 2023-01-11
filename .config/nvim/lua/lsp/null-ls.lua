@@ -17,7 +17,7 @@ null_ls.setup({
 		formatting.stylua,
 		diagnostics.flake8,
 		formatting.prettier.with({
-			args = { "--stdin", "--stdin-filename", "%filepath", "--format", "json", "--single-quote" },
+			-- args = { "--stdin", "--stdin-filename", "%filepath", "--format", "json", "--single-quote" },
 			condition = function(utils)
 				return not utils.root_has_file({ ".eslintrc", ".eslintrc.js", ".eslintrc.json" })
 			end,

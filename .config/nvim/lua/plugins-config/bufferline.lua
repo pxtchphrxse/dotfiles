@@ -6,7 +6,14 @@ function M.setup()
 		return
 	end
 
-	bufferline.setup()
+	bufferline.setup({
+		options = {
+			diagnostics = "nvim_lsp",
+			diagnostics_update_in_inset = false,
+			persist_buffer_sort = true,
+			sort_by = "id",
+		},
+	})
 end
 
 return M
