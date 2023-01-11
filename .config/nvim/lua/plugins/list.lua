@@ -147,6 +147,7 @@ local plugins_list = {
 	"inkarkat/vim-ReplaceWithRegister", -- replace with register contents using motion (gr + motion)
 	"qpkorr/vim-bufkill", -- close buffer without close window
 	"szw/vim-maximizer", -- maximizes and restores current window
+	"mg979/vim-visual-multi", -- multiple cursors
 	{
 		"numToStr/Comment.nvim", -- commenting code with gc, gb
 		event = "BufRead",
