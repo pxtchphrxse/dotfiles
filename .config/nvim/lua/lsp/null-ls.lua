@@ -44,7 +44,7 @@ null_ls.setup({
 	},
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
-			vim.api.nvim_create_user_command("Format", function()
+			vim.api.nvim_buf_create_user_command(bufnr, "Format", function()
 				lsp_formatting(bufnr, true)
 			end, { force = true })
 
