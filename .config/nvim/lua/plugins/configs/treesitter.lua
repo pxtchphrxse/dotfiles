@@ -36,7 +36,7 @@ treesitter_configs.setup({
 	highlight = {
 		enable = true, -- false will disable the whole extension
 		additional_vim_regex_highlighting = false,
-		disable = { "latex" },
+		disable = { "latex", "help" },
 	},
 	context_commentstring = {
 		enable = true,
