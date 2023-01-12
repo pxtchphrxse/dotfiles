@@ -149,6 +149,13 @@ local plugins_list = {
 	"szw/vim-maximizer", -- maximizes and restores current window
 	"mg979/vim-visual-multi", -- multiple cursors
 	{
+		"folke/noice.nvim", -- plugin that completely replaces the UI for messages, cmdline and the popupmenu
+		config = function()
+			require("noice").setup()
+		end,
+		requires = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
+	},
+	{
 		"numToStr/Comment.nvim", -- commenting code with gc, gb
 		event = "BufRead",
 		config = function()

@@ -31,7 +31,8 @@ local options = {
 	cursorcolumn = false, -- highlight the current column
 	background = "dark", -- colorschemes that can be light or dark will be made dark
 	signcolumn = "yes", -- show sign column so that text doesn't shift
-	lazyredraw = true, -- prevent flickering when use vgv
+	-- disable due to noice plugin's warning
+	-- lazyredraw = true, -- prevent flickering when use vgv
 	mouse = "a", -- allow the mouse to be used inneovim
 	cmdheight = 1, -- more space in the neovim command line for displaying messages
 	showmode = false, -- turn off things like -- INSERT --
