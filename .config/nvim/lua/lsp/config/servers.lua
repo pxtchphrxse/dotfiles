@@ -5,6 +5,8 @@ local servers = {
 	volar = require("lsp.config.settings.volar"),
 	vuels = require("lsp.config.settings.vuels"),
 	tailwindcss = {},
+	cssls = {},
+	html = {},
 }
 
 return servers
