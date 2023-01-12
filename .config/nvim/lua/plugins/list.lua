@@ -162,6 +162,13 @@ local plugins_list = {
 		requires = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
 	},
 	{
+		"kevinhwang91/nvim-ufo", -- code folding
+		requires = "kevinhwang91/promise-async",
+		config = function()
+			require("plugins.configs.ufo")
+		end,
+	},
+	{
 		"numToStr/Comment.nvim", -- commenting code with gc, gb
 		event = "BufRead",
 		config = function()
