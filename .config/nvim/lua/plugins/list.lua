@@ -149,6 +149,12 @@ local plugins_list = {
 	"szw/vim-maximizer", -- maximizes and restores current window
 	"mg979/vim-visual-multi", -- multiple cursors
 	{
+		"rcarriga/nvim-notify",
+		config = function()
+			require("plugins.configs.notify")
+		end,
+	},
+	{
 		"folke/noice.nvim", -- plugin that completely replaces the UI for messages, cmdline and the popupmenu
 		config = function()
 			require("noice").setup()
