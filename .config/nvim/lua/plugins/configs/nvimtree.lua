@@ -62,8 +62,8 @@ nvim_tree.setup({
 				{ key = "C", action = "cd" },
 			},
 		},
-		number = false,
-		relativenumber = false,
+		number = true,
+		relativenumber = true,
 		signcolumn = "yes",
 	},
 	renderer = {
