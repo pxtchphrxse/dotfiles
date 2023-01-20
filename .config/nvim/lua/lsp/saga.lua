@@ -3,7 +3,7 @@ if not status then
 	return
 end
 
-saga.init_lsp_saga({
+saga.setup({
 	move_in_saga = { prev = "<C-k>", next = "<C-j>" },
 	code_action_icon = " ",
 	code_action_lightbulb = {
@@ -19,8 +19,8 @@ saga.init_lsp_saga({
 	max_preview_lines = 10,
 	finder_action_keys = {
 		open = "o",
-		vsplit = "s",
-		split = "i",
+		vsplit = "v",
+		split = "s",
 		quit = "q",
 		scroll_down = "<C-f>",
 		scroll_up = "<C-b>",
