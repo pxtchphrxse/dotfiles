@@ -16,12 +16,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		require("vim.highlight").on_yank({ higroup = "Search", timeout = 200 })
 	end,
 })
-vim.api.nvim_create_autocmd("InsertLeave", {
-	pattern = "*",
-	callback = function()
-		vim.cmd([[silent exec "!im-select com.apple.keylayout.ABC > /dev/null"]])
-	end,
-})
 
 -- vim.cmd([[
 --   function! AutoWipeBuf()

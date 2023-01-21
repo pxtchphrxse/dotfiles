@@ -149,6 +149,12 @@ local plugins_list = {
 	"szw/vim-maximizer", -- maximizes and restores current window
 	"mg979/vim-visual-multi", -- multiple cursors
 	{
+		"keaising/im-select.nvim",
+		config = function()
+			require("plugins.configs.im-select")
+		end,
+	},
+	{
 		"rcarriga/nvim-notify",
 		config = function()
 			require("plugins.configs.notify")
