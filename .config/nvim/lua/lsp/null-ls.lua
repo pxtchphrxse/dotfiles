@@ -24,6 +24,8 @@ null_ls.setup({
 		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.stylua,
 		diagnostics.flake8,
+		formatting.sql_formatter,
+		formatting.beautysh,
 		formatting.prettier.with({
 			condition = function(utils)
 				return not utils.root_has_file({ ".eslintrc", ".eslintrc.js", ".eslintrc.json" })

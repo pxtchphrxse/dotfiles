@@ -25,6 +25,9 @@ mason_lspconfig.setup({
 		"jsonls",
 		"vuels",
 		"volar",
+		"bashls",
+		"dockerls",
+		"prismals",
 	},
 })
 
@@ -34,5 +37,7 @@ mason_null_ls.setup({
 		"prettier",
 		"eslint_d",
 		"flake8",
+		"sql_formatter",
+		"beautysh",
 	},
 })

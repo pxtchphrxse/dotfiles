@@ -7,6 +7,9 @@ local servers = {
 	tailwindcss = {},
 	cssls = {},
 	html = {},
+	bashls = {},
+	dockerls = {},
+	prismals = {},
 }
 
 return servers

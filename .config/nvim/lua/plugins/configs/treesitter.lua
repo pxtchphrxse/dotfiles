@@ -27,6 +27,9 @@ treesitter_configs.setup({
 		"dockerfile",
 		"gitignore",
 		"vue",
+		"sql",
+		"dockerfile",
+		"prisma",
 	}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
 	ignore_install = {},
 	matchup = {
