@@ -46,7 +46,12 @@ local plugins_list = {
 			require("plugins.configs.treesitter")
 		end,
 	},
-	"nvim-treesitter/nvim-treesitter-context",
+	{
+		"nvim-treesitter/nvim-treesitter-context",
+		config = function()
+			require("plugins.configs.treesitter-context")
+		end,
+	},
 	"p00f/nvim-ts-rainbow",
 	"windwp/nvim-ts-autotag",
 	"andymass/vim-matchup",

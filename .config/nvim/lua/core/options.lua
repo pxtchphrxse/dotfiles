@@ -36,8 +36,8 @@ local options = {
 	mouse = "a", -- allow the mouse to be used inneovim
 	cmdheight = 1, -- more space in the neovim command line for displaying messages
 	showmode = false, -- turn off things like -- INSERT --
-	scrolloff = 2, -- scroll offset
-	sidescrolloff = 2, -- horizontal scroll offset
+	scrolloff = 4, -- scroll offset
+	sidescrolloff = 4, -- horizontal scroll offset
 
 	-- split windows
 	splitbelow = true, -- force all horizontal splits to go below current window
