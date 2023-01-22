@@ -69,7 +69,7 @@ local on_attach = function(client, bufnr)
 		keymap("n", "<leader>cr<cr>", "<cmd>TypscriptRenameFile<cr>", bufnr)
 	end
 
-	if client.name == "volar" then
+	if client.name == "vuels" then
 		vim.api.nvim_create_user_command("AddVue3Project", vue3_add_project, { force = true })
 	end
 end

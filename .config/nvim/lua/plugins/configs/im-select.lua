@@ -11,5 +11,5 @@ im_select.setup({
 	default_im_select = "com.apple.keylayout.ABC",
 
 	-- Set to 1 if you don't want restore IM status when `InsertEnter`
-	disable_auto_restore = 0,
+	disable_auto_restore = 1,
 })
