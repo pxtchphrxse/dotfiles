@@ -32,6 +32,8 @@ brew install fzf
 brew install wrk
 brew install tmux
 brew install im-select
+brew install yabai
+brew install skhd
 
 # Brew Casks
 echo "Installing Brew Casks..."
@@ -55,3 +57,5 @@ ln -s ./.config/sketchybar $HOME/.config/sketchybar
 echo "Starting Services (grant permissions)..."
 brew services start svim
 brew services start sketchybar
+brew services start yabai
+brew services start skhd

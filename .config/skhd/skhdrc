@@ -1,0 +1,83 @@
+## HYPER == SHIFT + CMD + ALT + OPTION
+
+:: default 
+
+# rotate tree 90
+default < hyper - r : yabai -m space --rotate 90
+
+
+
+## window related shortcuts
+
+
+# normal command
+# set mode for window
+:: window @
+default < hyper - w ; window # enter window mode
+window < escape ; default # exit mode with escape
+
+# focus window
+window < h : yabai -m window --focus west; skhd -k 'escape'
+window < j : yabai -m window --focus south; skhd -k 'escape'
+window < k : yabai -m window --focus north; skhd -k 'escape'
+window < l : yabai -m window --focus east; skhd -k 'escape'
+window < p : yabai -m window --focus prev; skhd -k 'escape'
+window < n : yabai -m window --focus next; skhd -k 'escape'
+window < o : yabai -m window --focus recent; skhd -k 'escape'
+window < m : yabai -m window --focus largest; skhd -k 'escape'
+
+# toggle fullsreen
+window < f : yabai -m window --toggle zoom-fullscreen; skhd -k 'escape'
+
+# toggle float
+window < shift - f : yabai -m window --toggle float; skhd -k 'escape'
+
+# toggle split direction
+window < w : yabai -m window --toggle split; skhd -k 'escape'
+
+
+# resizing command
+# set mode for resize window
+:: resize @
+default < hyper - s ; resize # enter window mode
+resize < escape ; default # exit mode with escape
+
+# resize window - we do not exit this mode automatically.
+# increase size
+resize < h : yabai -m window --resize left:-20:0
+resize < j : yabai -m window --resize bottom:0:20
+resize < k : yabai -m window --resize top:0:-20
+resize < l : yabai -m window --resize right:20:0
+# decrease size
+resize < shift - h : yabai -m window --resize left:20:0
+resize < shift - j : yabai -m window --resize bottom:0:-20
+resize < shift - k : yabai -m window --resize top:0:20
+resize < shift - l : yabai -m window --resize right:-20:0
+
+
+# move command
+# set mode for move window
+:: move @
+default < hyper - m ; move # enter move mode
+move < escape ; default # exit mode with escape
+
+# move window within space
+move < h : yabai -m window --warp west; skhd -k 'escape'
+move < j : yabai -m window --warp south; skhd -k 'escape'
+move < k : yabai -m window --warp north; skhd -k 'escape'
+move < l : yabai -m window --warp east; skhd -k 'escape'
+move < o : yabai -m window --warp recent; skhd -k 'escape'
+move < p : yabai -m window --warp prev; skhd -k 'escape'
+move < n : yabai -m window --warp next; skhd -k 'escape'
+move < m : yabai -m window --warp largest; skhd -k 'escape'
+
+# move window between spaces (focus may not work when SIP enabled)
+move < shift - h : yabai -m window --space prev; yabai -m space --focus prev; skhd -k 'escape'
+move < shift - l : yabai -m window --space next; yabai -m space --focus next; skhd -k 'escape'
+move < shift - o : yabai -m window --space recent; yabai -m space --focus recent; skhd -k 'escape'
+move < shift - p : yabai -m window --space prev; yabai -m space --focus prev; skhd -k 'escape'
+move < shift - n : yabai -m window --space next; yabai -m space --focus next; skhd -k 'escape'
+move < 1 : yabai -m window --space 1; yabai -m space --focus 1; skhd -k 'escape'
+move < 2 : yabai -m window --space 2; yabai -m space --focus 2; skhd -k 'escape'
+move < 3 : yabai -m window --space 3; yabai -m space --focus 3; skhd -k 'escape'
+move < 4 : yabai -m window --space 4; yabai -m space --focus 4; skhd -k 'escape'
