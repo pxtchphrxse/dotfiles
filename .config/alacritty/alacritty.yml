@@ -1,0 +1,58 @@
+colors:
+  primary:
+    background: "#000000"
+    foreground: "#abb2bf"
+  normal:
+    black: "#4C566A"
+    red: "#ef596f"
+    green: "#89ca78"
+    yellow: "#e5c07b"
+    blue: "#61afef"
+    magenta: "#d55fde"
+    cyan: "#2bbac5"
+    white: "#abb2bf"
+  background_opacity: 0.5
+  cursor:
+    text: "#3B4252"
+    cursor: "#ECEFF4"
+
+cursor:
+  style:
+    blinking: Always
+  blink_interval: 400
+  blink_timeout: 5
+
+font:
+  normal:
+    family: "FiraCode Nerd Font"
+    style: SemiBold
+  size: 17.0
+  ligatures: true
+  offset:
+    x: 0
+    y: 0
+  glyph_offset:
+    x: 0
+    y: 0
+
+window:
+  padding:
+    x: 2
+    y: 2
+  dynamic_title: true
+  decorations: buttonless
+
+selection:
+  semantic_escape_chars: ',│`|:"'' ()[]{}<>'
+  save_to_clipboard: true
+
+live_config_reload: true
+
+scrolling:
+  history: 10000
+  multiplier: 3
+
+alt_send_esc: false
+
+key_bindings:
+  - { key: Key0, mods: Command, action: ResetFontSize }

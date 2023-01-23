@@ -42,6 +42,7 @@ brew install --cask ngrok
 brew install --cask sf-symbols
 brew install --cask fig
 brew install --cask karabiner-elements
+brew install --cask alacritty
 
 # Mac App Store Apps
 echo "Installing Mac App Store Apps..."
@@ -52,6 +53,9 @@ echo "Linking Config Files"
 ln -s ./.config/nvim $HOME/.config/nvim
 ln -s ./.config/svim $HOME/.config/svim
 ln -s ./.config/sketchybar $HOME/.config/sketchybar
+ln -s ./.config/yabai $HOME/.config/yabai
+ln -s ./.config/skhd $HOME/.config/skhd
+ln -s ./.config/alacritty $HOME/.config/alacritty
 
 # Start Services
 echo "Starting Services (grant permissions)..."
