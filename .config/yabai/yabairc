@@ -14,8 +14,10 @@ yabai -m config right_padding  2
 yabai -m config window_gap     2
 
 # diable Yabai form resizing them.
+yabai -m rule --add app="^Finder$" sticky=on layer=above manage=off
+yabai -m rule --add app="^System Information$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Karabiner-Elements$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Karabiner-EventViewer$" sticky=on layer=above manage=off
-yabai -m rule --add app="^Finder$" sticky=on layer=above manage=off
+yabai -m rule --add app="^Raycast$" layer=above manage=off
 
 echo "yabai configuration loaded.."
