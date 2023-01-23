@@ -24,8 +24,8 @@ cursor:
 
 font:
   normal:
-    family: "FiraCode Nerd Font"
-    style: SemiBold
+    family: "MesloLGS NF"
+    style: Regular
   size: 17.0
   ligatures: true
   offset:
