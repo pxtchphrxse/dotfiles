@@ -6,7 +6,7 @@ end
 local lsp_keymaps = function(bufnr)
 	keymap("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", bufnr)
 	keymap("n", "gD", "<cmd>Lspsaga peek_definition<CR>", bufnr)
-	keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", bufnr)
+	keymap("n", "gd", "<cmd>Lspsaga goto_definition<cr>", bufnr)
 	keymap("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", bufnr)
 	keymap("n", "K", "<cmd>Lspsaga hover_doc<cr>", bufnr)
 	-- keymap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", bufnr)

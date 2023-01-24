@@ -4,12 +4,6 @@ local servers = {
 	sumneko_lua = require("lsp.config.settings.sumneko_lua"),
 	volar = require("lsp.config.settings.volar"),
 	vuels = require("lsp.config.settings.vuels"),
-	tailwindcss = {},
-	cssls = {},
-	html = {},
-	bashls = {},
-	dockerls = {},
-	prismals = {},
 }
 
 return servers
