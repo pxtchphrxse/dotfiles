@@ -26,7 +26,7 @@ font:
   normal:
     family: "MesloLGS NF"
     style: Regular
-  size: 17.0
+  size: 18.0
   ligatures: true
   offset:
     x: 0
@@ -40,7 +40,7 @@ window:
     x: 2
     y: 2
   dynamic_title: true
-  decorations: buttonless
+  decorations: none
 
 selection:
   semantic_escape_chars: ',│`|:"'' ()[]{}<>'

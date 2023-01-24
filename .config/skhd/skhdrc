@@ -10,6 +10,8 @@ default < hyper - r : yabai -m space --rotate 90
 ## window related shortcuts
 
 
+# focus recent window
+hyper - o : yabai -m window --focus recent; skhd -k 'escape'
 # normal command
 # set mode for window
 :: window @
@@ -62,10 +64,11 @@ default < hyper - m ; move # enter move mode
 move < escape ; default # exit mode with escape
 
 # move window within space
-move < h : yabai -m window --warp west; skhd -k 'escape'
-move < j : yabai -m window --warp south; skhd -k 'escape'
-move < k : yabai -m window --warp north; skhd -k 'escape'
-move < l : yabai -m window --warp east; skhd -k 'escape'
+move < h : yabai -m window --swap west; skhd -k 'escape'
+move < j : yabai -m window --swap south; skhd -k 'escape'
+move < k : yabai -m window --swap north; skhd -k 'escape'
+move < l : yabai -m window --swap east; skhd -k 'escape'
+
 move < o : yabai -m window --warp recent; skhd -k 'escape'
 move < p : yabai -m window --warp prev; skhd -k 'escape'
 move < n : yabai -m window --warp next; skhd -k 'escape'
