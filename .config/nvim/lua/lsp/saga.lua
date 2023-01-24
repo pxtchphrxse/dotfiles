@@ -4,31 +4,44 @@ if not status then
 end
 
 saga.setup({
-	move_in_saga = { prev = "<C-k>", next = "<C-j>" },
-	code_action_icon = " ",
-	code_action_lightbulb = {
+	ui = {
+		border = "rounded",
+	},
+	finder = {
+		open = "o",
+		edit = { "e", "<CR>" },
+		vsplit = "v",
+		split = "s",
+		tabe = "t",
+		quit = { "q", "<ESC>" },
+	},
+	code_action = {
+		num_shortcut = false,
+		keys = {
+			quit = "q",
+			exec = "<CR>",
+		},
+	},
+	lightbulb = {
 		enable = true,
+		enable_on_insert = false,
 		sign = true,
 		sign_priority = 40,
 		virtual_text = true,
 	},
-	finder_icons = {
-		def = "  ",
-		ref = "  ",
+	outline = {
+		win_position = "right",
+		win_with = "",
+		win_width = 30,
+		show_detail = true,
+		auto_preview = true,
+		auto_refresh = true,
+		auto_close = true,
+		custom_sort = nil,
+		keys = {
+			jump = "o",
+			expand_collapse = "u",
+			quit = "q",
+		},
 	},
-	max_preview_lines = 10,
-	finder_action_keys = {
-		open = "o",
-		vsplit = "v",
-		split = "s",
-		quit = "q",
-		scroll_down = "<C-f>",
-		scroll_up = "<C-b>",
-	},
-	code_action_keys = {
-		quit = "q",
-		exec = "<CR>",
-	},
-	-- "single" | "double" | "rounded" | "bold" | "plus"
-	border_style = "rounded",
 })

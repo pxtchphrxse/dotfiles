@@ -185,6 +185,7 @@ local mappings = {
 		q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
 		r = { "<cmd>Lspsaga rename<cr>", "Rename" },
 		R = { "<cmd>LspRestart<cr>", "Restart LSP" },
+		o = { "<cmd>Lspsaga outline<cr>", "Lspsaga Outline" },
 		s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
 		S = {
 			"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
