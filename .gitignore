@@ -1,3 +1,4 @@
 .config/nvim/plugin/packer_compiled.lua
 .config/nvim/session
 .config/nvim/vue3-project.txt
+.config/lazygit/state.yml
