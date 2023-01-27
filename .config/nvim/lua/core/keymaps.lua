@@ -76,10 +76,8 @@ keymap("v", "<", "<gv")
 keymap("v", ">", ">gv")
 
 -- move lines up and down
-keymap("n", "<M-j>", ":m .+1<CR>==")
-keymap("n", "<M-k>", ":m .-2<CR>==")
-keymap("v", "<M-j>", ":m .+1<CR>==")
-keymap("v", "<M-k>", ":m .-2<CR>==")
+keymap("v", "<M-j>", ":m '>+<CR>gv")
+keymap("v", "<M-k>", ":m '<-2<CR>gv")
 
 -- paste & replace without yank
 keymap("v", "p", '"_dP')

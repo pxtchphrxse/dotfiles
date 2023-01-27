@@ -108,7 +108,7 @@ nvim_tree.setup({
 		root_folder_modifier = ":t",
 	},
 	filters = {
-		dotfiles = false,
+		dotfiles = true,
 		custom = { "node_modules", "\\.cache" },
 		exclude = {},
 	},
