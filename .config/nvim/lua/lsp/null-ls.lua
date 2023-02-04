@@ -2,6 +2,7 @@ local status, null_ls = pcall(require, "null-ls")
 if not status then
 	return
 end
+local u = require("null-ls.utils")
 
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
@@ -20,6 +21,7 @@ local lsp_formatting = function(bufnr, async)
 end
 
 null_ls.setup({
+	root_dir = u.root_pattern(".null-ls-root", "Makefile", "node_modules", ".git"),
 	sources = {
 		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.stylua,

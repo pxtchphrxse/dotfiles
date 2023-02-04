@@ -16,7 +16,7 @@ saga.setup({
 		quit = { "q", "<ESC>" },
 	},
 	code_action = {
-		num_shortcut = false,
+		num_shortcut = true,
 		keys = {
 			quit = "q",
 			exec = "<CR>",
