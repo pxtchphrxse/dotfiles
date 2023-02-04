@@ -20,6 +20,26 @@ local lsp_formatting = function(bufnr, async)
 	})
 end
 
+local prettier_filetypes = {
+	"javascript",
+	"javascriptreact",
+	"typescript",
+	"typescriptreact",
+	"vue",
+	"css",
+	"scss",
+	"less",
+	"html",
+	"json",
+	"jsonc",
+	"yaml",
+	"markdown",
+	"markdown.mdx",
+	"graphql",
+	"handlebars",
+	"svelte",
+}
+
 null_ls.setup({
 	root_dir = u.root_pattern(".null-ls-root", "Makefile", "node_modules", ".git"),
 	sources = {
@@ -29,20 +49,25 @@ null_ls.setup({
 		formatting.sql_formatter,
 		formatting.beautysh,
 		formatting.prettier.with({
+			filetypes = prettier_filetypes,
 			condition = function(utils)
-				return not utils.root_has_file({ ".eslintrc", ".eslintrc.js", ".eslintrc.json" })
+				-- force prettier to format svelte (not eslint_d)
+				if vim.bo.filetype == "svelte" then
+					return true
+				end
+				return not utils.root_has_file({ ".eslintrc", ".eslintrc.js", ".eslintrc.json", ".eslintrc.cjs" })
 			end,
 		}),
 		formatting.eslint_d.with({
-			-- args = { "--stdin", "--stdin-filename", "%filepath", "--format", "json" },
+			filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue" },
 			condition = function(utils)
-				return utils.root_has_file({ ".eslintrc", ".eslintrc.js", ".eslintrc.json" })
+				return utils.root_has_file({ ".eslintrc", ".eslintrc.js", ".eslintrc.json", ".eslintrc.cjs" })
 			end,
 		}),
 		diagnostics.eslint_d.with({
-			-- args = { "--stdin", "--stdin-filename", "%filepath", "--format", "json" },
+			filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte" },
 			condition = function(utils)
-				return utils.root_has_file({ ".eslintrc", ".eslintrc.js", ".eslintrc.json" })
+				return utils.root_has_file({ ".eslintrc", ".eslintrc.js", ".eslintrc.json", ".eslintrc.cjs" })
 			end,
 		}),
 	},
