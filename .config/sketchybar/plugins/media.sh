@@ -1,31 +1,42 @@
 #!/bin/sh
+# require nowplaying-cli (https://github.com/kirtan-shah/nowplaying-cli.git)
 
 next() {
-    osascript -e 'tell application "Music" to play next track'
+    nowplaying-cli next
 }
 back() {
-    osascript -e 'tell application "Music" to play previous track'
+    nowplaying-cli back
 }
 play() {
-    osascript -e 'tell application "Music" to playpause'
+    nowplaying-cli togglePlayPause
 }
 
 update() {
-    PLAYER_STATE=$(osascript -e 'tell application "Music" to get player state')
-    PLAYER_ICON=􀊄
-    if [ ${PLAYER_STATE} = "stopped" ]
+    PLAYBACK_RATE=$(nowplaying-cli get playbackRate)
+    if [ ${PLAYBACK_RATE} = 1 ]
     then
+        PLAYER_ICON=􀊆
+    else
+        PLAYER_ICON=􀊄
+    fi
+
+    TRACK_NAME=$(nowplaying-cli get title)
+    TRACK_ARTIST=$(nowplaying-cli get artist)
+    if [ ${TRACK_NAME} = "null" ]
+    then
+        PLAYER_LABEL=""
         sketchybar --set music.play label="$PLAYER_LABEL" icon="$PLAYER_ICON" \
             label.padding_right=0
+        return
     else
-        TRACK_NAME=$(osascript -e 'tell application "Music" to get name of current track')
-        TRACK_ARTIST=$(osascript -e 'tell application "Music" to get artist of current track')
-        PLAYER_LABEL="$TRACK_NAME - $TRACK_ARTIST"
-        if [ ${PLAYER_STATE} = "playing" ]
+        if [[ ${TRACK_ARTIST} = "null" || ${TRACK_ARTIST} = "" ]]
         then
-            PLAYER_ICON=􀊆
+            PLAYER_LABEL="$TRACK_NAME"
+        elif [[ ${TRACK_NAME} = "null" || ${TRACK_NAME} = "" ]]
+        then
+            PLAYER_LABEL="$TRACK_ARTIST"
         else
-            PLAYER_ICON=􀊄
+            PLAYER_LABEL="$TRACK_NAME - $TRACK_ARTIST"
         fi
         sketchybar --set music.play label="$PLAYER_LABEL" icon="$PLAYER_ICON" \
             label.padding_right=8
