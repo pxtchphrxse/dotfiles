@@ -85,3 +85,18 @@ move < 2 : yabai -m window --space 2; yabai -m space --focus 2; skhd -k 'escape'
 move < 3 : yabai -m window --space 3; yabai -m space --focus 3; skhd -k 'escape'
 move < 4 : yabai -m window --space 4; yabai -m space --focus 4; skhd -k 'escape'
 move < 5 : yabai -m window --space 5; yabai -m space --focus 5; skhd -k 'escape'
+
+# stack command
+# set mode for stack
+:: stack @
+default < hyper - e ; stack # enter stack mode with hyper + e
+stack < escape ; default # exit mode with escape
+
+# add active window to stack (with direction)
+stack < shift - h : yabai -m window west --stack $(yabai -m query --windows --window | jq -r '.id'); skhd -k 'escape'
+stack < shift - j : yabai -m window south --stack $(yabai -m query --windows --window | jq -r '.id'); skhd -k 'escape'
+stack < shift - k : yabai -m window north --stack $(yabai -m query --windows --window | jq -r '.id'); skhd -k 'escape'
+stack < shift - l : yabai -m window east --stack $(yabai -m query --windows --window | jq -r '.id'); skhd -k 'escape'
+# switch stack
+stack < h : yabai -m window --focus stack.prev; skhd -k 'escape'
+stack < l : yabai -m window --focus stack.next; skhd -k 'escape'
