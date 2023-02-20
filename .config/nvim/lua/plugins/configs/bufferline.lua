@@ -9,5 +9,6 @@ bufferline.setup({
 		diagnostics_update_in_inset = false,
 		persist_buffer_sort = true,
 		sort_by = "id",
+		right_mouse_command = ":BD",
 	},
 })
