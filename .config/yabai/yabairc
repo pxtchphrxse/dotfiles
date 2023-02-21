@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 
+sudo yabai --load-sa
 ### layout
 # bsp or float (default: float)
 yabai -m config layout bsp

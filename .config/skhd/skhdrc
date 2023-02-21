@@ -31,6 +31,9 @@ window < m : yabai -m window --focus largest; skhd -k 'escape'
 # toggle fullsreen
 window < f : yabai -m window --toggle zoom-fullscreen; skhd -k 'escape'
 
+# equally resize windows in space (window > =)
+window < 0x18 : yabai -m space --balance; skhd -k 'escape'
+
 # toggle float
 window < shift - f : yabai -m window --toggle float; skhd -k 'escape'
 
