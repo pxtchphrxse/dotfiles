@@ -20,4 +20,11 @@ return {
 			require("plugins.ui.alpha-setup")
 		end,
 	},
+	{
+		"echasnovski/mini.animate",
+		event = "VeryLazy",
+		config = function()
+			require("plugins.ui.mini-animate-setup")
+		end,
+	},
 }
