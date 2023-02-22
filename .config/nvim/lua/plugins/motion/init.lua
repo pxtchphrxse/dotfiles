@@ -16,4 +16,5 @@ return {
 			require("plugins.motion.lightspeed-setup")
 		end,
 	},
+	{ "windwp/nvim-spectre", cmd = "Spectre" },
 }
