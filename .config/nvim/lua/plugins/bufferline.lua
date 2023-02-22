@@ -1,6 +1,11 @@
 return {
 	{
 		"akinsho/bufferline.nvim",
+		branch = "main",
+		event = "BufWinEnter",
+		dependencies = {
+			{ "tiagovla/scope.nvim", config = {} }, -- show only buffers opened in tab
+		},
 		config = {
 			options = {
 				diagnostics = "nvim_lsp",
@@ -8,12 +13,15 @@ return {
 				persist_buffer_sort = true,
 				sort_by = "id",
 				right_mouse_command = ":BD",
+
+				offsets = {
+					{
+						filetype = "neo-tree",
+						text = "NeoTree",
+						highlight = "Directory",
+					},
+				},
 			},
-		},
-		branch = "main",
-		event = "BufWinEnter",
-		dependencies = {
-			{ "tiagovla/scope.nvim", config = {} }, -- show only buffers opened in tab
 		},
 	},
 	"qpkorr/vim-bufkill", -- close buffer without close window

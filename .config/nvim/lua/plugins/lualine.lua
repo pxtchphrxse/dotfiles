@@ -10,7 +10,7 @@ return {
 				-- component_separators = { left = "", right = "" },
 				section_separators = { left = "", right = "" },
 				component_separators = { left = "", right = "" },
-				disabled_filetypes = {},
+				disabled_filetypes = { "alpha" },
 			},
 			sections = {
 				lualine_a = { "mode" },
@@ -54,7 +54,7 @@ return {
 				lualine_z = {},
 			},
 			tabline = {},
-			extensions = { "fugitive" },
+			extensions = { "fugitive", "neo-tree" },
 		},
 	},
 }

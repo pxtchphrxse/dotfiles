@@ -109,7 +109,7 @@ return {
 					t = { "<cmd>tabe<cr>", "New Tab" },
 					x = { "<cmd>tabc<cr>", "Close Tab" },
 				},
-				["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+				["e"] = { "<cmd>Neotree toggle<cr>", "Explorer" },
 				["w"] = { "<cmd>w!<CR>", "Save" },
 				["q"] = { "<cmd>q!<CR>", "Quit" },
 				["Q"] = { "<cmd>qa!<CR>", "Quit All" },
