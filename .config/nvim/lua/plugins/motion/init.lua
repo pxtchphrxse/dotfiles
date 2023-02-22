@@ -11,9 +11,14 @@ return {
 		},
 	},
 	{
-		"ggandor/lightspeed.nvim",
-		config = function()
-			require("plugins.motion.lightspeed-setup")
+		"ggandor/leap.nvim",
+		keys = {
+			{ "s", mode = { "n", "x", "o" }, desc = "Leap forward to" },
+			{ "S", mode = { "n", "x", "o" }, desc = "Leap backward to" },
+			{ "gs", mode = { "n", "x", "o" }, desc = "Leap from windows" },
+		},
+		config = function(_, opts)
+			require("plugins.motion.leap-setup").setup(opts)
 		end,
 	},
 	{ "windwp/nvim-spectre", cmd = "Spectre" },
