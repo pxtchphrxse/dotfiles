@@ -18,7 +18,7 @@ if not typescript_status then
 	return
 end
 
-local on_attach = require("lsp.config.on-attach")
+local on_attach = require("plugins.lsp.config.on-attach")
 local capabilities = cmp_nvim_lsp.default_capabilities()
 
 local server_options = {
@@ -42,7 +42,7 @@ local mason_lspconfig_handlers_options = {
 }
 
 -- custom servers options in out list
-local servers = require("lsp.config.servers")
+local servers = require("plugins.lsp.config.servers")
 for server, option in pairs(servers) do
 	local opts = vim.tbl_deep_extend("force", option, server_options)
 	mason_lspconfig_handlers_options[server] = function()

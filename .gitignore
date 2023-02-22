@@ -2,3 +2,4 @@
 .config/nvim/session
 .config/nvim/vue3-project.txt
 .config/lazygit/state.yml
+.config/nvim/lazy-lock.json

@@ -1,5 +1,3 @@
 require("core")
-require("plugins")
-require("nvim-cmp")
-require("lsp")
+require("lazy-config")
 require("autocommands")

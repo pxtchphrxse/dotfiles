@@ -1,9 +1,4 @@
-local status_ok, gitsigns = pcall(require, "gitsigns")
-if not status_ok then
-	return
-end
-
-gitsigns.setup({
+return {
 	signs = {
 		add = {
 			hl = "GitSignsAdd",
@@ -73,4 +68,4 @@ gitsigns.setup({
 	update_debounce = 200,
 	status_formatter = nil, -- Use default
 	yadm = { enable = false },
-})
+}
