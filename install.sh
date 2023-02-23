@@ -43,6 +43,7 @@ brew install --cask sf-symbols
 brew install --cask fig
 brew install --cask karabiner-elements
 brew install --cask alacritty
+brew install --cask kitty
 
 # Mac App Store Apps
 echo "Installing Mac App Store Apps..."
@@ -56,6 +57,7 @@ ln -s ./.config/sketchybar $HOME/.config/sketchybar
 ln -s ./.config/yabai $HOME/.config/yabai
 ln -s ./.config/skhd $HOME/.config/skhd
 ln -s ./.config/alacritty $HOME/.config/alacritty
+ln -s ./.config/kitty $HOME/.config/kitty
 
 # Start Services
 echo "Starting Services (grant permissions)..."
