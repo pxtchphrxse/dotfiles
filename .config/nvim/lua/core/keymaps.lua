@@ -60,6 +60,8 @@ keymap("n", "<leader>-", "<C-x>") -- decrement
 -- move line up and down
 keymap("n", "<M-j>", ":m .+1<CR>==")
 keymap("n", "<M-k>", ":m .-2<CR>==")
+keymap("n", "∆", ":m .+1<CR>==") -- if alt+esc don't work in terminal (macOS)
+keymap("n", "˚", ":m .-2<CR>==")
 
 -- resize window
 keymap("n", "<A-Up>", ":resize -2<CR>")
@@ -78,6 +80,8 @@ keymap("v", ">", ">gv")
 -- move lines up and down
 keymap("v", "<M-j>", ":m '>+<CR>gv")
 keymap("v", "<M-k>", ":m '<-2<CR>gv")
+keymap("v", "∆", ":m '>+<CR>gv") -- if alt+esc don't work in terminal (macOS)
+keymap("v", "˚", ":m '<-2<CR>gv")
 
 -- paste & replace without yank
 keymap("v", "p", '"_dP')
