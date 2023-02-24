@@ -205,6 +205,7 @@ return {
 					w = { "<cmd>Trouble workspace_diagnostics<cr>", "Wordspace Diagnostics" },
 					t = { "<cmd>TodoTrouble<cr>", "Todo List" },
 				},
+				u = { "<cmd>UndotreeToggle<cr>", "Undo Tree" },
 			}
 
 			local vopts = {

@@ -34,4 +34,5 @@ return {
 		opts = { labeled_modes = "nx" },
 	},
 	{ "windwp/nvim-spectre", cmd = "Spectre" },
+	{ "mbbill/undotree" },
 }
