@@ -7,13 +7,25 @@ saga.setup({
 	ui = {
 		border = "rounded",
 	},
+	symbol_in_winbar = {
+		enable = true,
+		separator = "  ",
+		ignore_patterns = {},
+		hide_keyword = true,
+		show_file = true,
+		folder_level = 2,
+		respect_root = false,
+		color_mode = true,
+	},
 	finder = {
-		open = "o",
-		edit = { "e", "<CR>" },
-		vsplit = "v",
-		split = "s",
-		tabe = "t",
-		quit = { "q", "<ESC>" },
+		keys = {
+			open = "o",
+			edit = { "e", "<CR>" },
+			vsplit = "v",
+			split = "s",
+			tabe = "t",
+			quit = { "q", "<ESC>" },
+		},
 	},
 	code_action = {
 		num_shortcut = true,

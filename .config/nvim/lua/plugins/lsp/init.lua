@@ -36,6 +36,10 @@ return {
 		"glepnir/lspsaga.nvim",
 		branch = "main",
 		event = { "BufReadPre", "BufNewFile" },
+		dependencies = {
+			{ "nvim-tree/nvim-web-devicons", name = "nvim-tree-devicons" },
+			"nvim-treesitter/nvim-treesitter",
+		},
 		config = function()
 			require("plugins.lsp.saga")
 		end,
