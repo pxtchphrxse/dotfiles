@@ -22,6 +22,12 @@ return {
 					},
 				},
 			},
+			highlights = {
+				buffer_selected = {
+					italic = false,
+					fg = "#89ca78",
+				},
+			},
 		},
 	},
 	"qpkorr/vim-bufkill", -- close buffer without close window

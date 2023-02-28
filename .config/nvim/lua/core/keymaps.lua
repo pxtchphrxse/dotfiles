@@ -69,6 +69,12 @@ keymap("n", "<A-Down>", ":resize+2<CR>")
 keymap("n", "<A-Left>", ":vertical resize -2<CR>")
 keymap("n", "<A-Right>", ":vertical resize +2<CR>")
 
+-- better scroll experience
+keymap("n", "<C-f>", "<C-f>zz")
+keymap("n", "<C-b>", "<C-b>zz")
+keymap("n", "<C-d>", "<C-d>zz")
+keymap("n", "<C-u>", "<C-u>zz")
+
 ---------------------
 -- Visual Mode
 ---------------------
@@ -103,3 +109,9 @@ keymap("v", "<leader>C", "C")
 
 -- keep cursor in same position when yank
 keymap("v", "y", "ygv<ESC>")
+
+-- better scroll experience
+keymap("v", "<C-f>", "<C-f>zz")
+keymap("v", "<C-b>", "<C-b>zz")
+keymap("v", "<C-d>", "<C-d>zz")
+keymap("v", "<C-u>", "<C-u>zz")
