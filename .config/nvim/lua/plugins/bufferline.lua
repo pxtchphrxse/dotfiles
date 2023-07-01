@@ -1,10 +1,10 @@
 return {
 	{
 		"akinsho/bufferline.nvim",
-		branch = "main",
-		event = "BufWinEnter",
+		version = "*",
 		dependencies = {
 			{ "tiagovla/scope.nvim", config = {} }, -- show only buffers opened in tab
+			{ "nvim-tree/nvim-web-devicons", name = "nvim-tree-devicons" },
 		},
 		config = {
 			options = {
@@ -13,7 +13,7 @@ return {
 				persist_buffer_sort = true,
 				sort_by = "id",
 				right_mouse_command = ":BD",
-
+				buffer_close_icon = "",
 				offsets = {
 					{
 						filetype = "neo-tree",

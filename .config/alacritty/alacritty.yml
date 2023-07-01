@@ -24,9 +24,9 @@ cursor:
 
 font:
   normal:
-    family: "MesloLGS NF"
+    family: "Lilex Nerd Font Mono"
     style: Regular
-  size: 18.0
+  size: 19.0
   ligatures: true
   offset:
     x: 0
@@ -51,8 +51,6 @@ live_config_reload: true
 scrolling:
   history: 10000
   multiplier: 3
-
-alt_send_esc: false
 
 key_bindings:
   - { key: Key0, mods: Command, action: ResetFontSize }

@@ -25,8 +25,12 @@ yabai -m config active_window_opacity 0.95
 yabai -m config normal_window_opacity 0.75
 
 yabai -m rule --add app="^Fig$" border=off # turn border for fig's autosuggest off
-yabai -m rule --add app="^Alacritty$" border=off
+yabai -m rule --add app="^Alacritty$" border=off opacity=0.75
 yabai -m rule --add app="^kitty$" border=off
+yabai -m rule --add app="^FileZilla$" border=off opacity=1
+yabai -m rule --add app="^TablePlus$" opacity=1
+yabai -m rule --add app="^Arc$" opacity=1
+yabai -m rule --add app="^Safari$" opacity=1
 # diable Yabai form resizing them.
 yabai -m rule --add app="^Finder$" sticky=on manage=off opacity=1
 yabai -m rule --add app="^System Information$" sticky=on manage=off opacity=1

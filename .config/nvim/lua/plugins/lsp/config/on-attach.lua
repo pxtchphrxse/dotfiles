@@ -62,6 +62,15 @@ local config_diagnostic = function()
 	vim.diagnostic.config(config)
 end
 
+local lsp_formatting = function(bufnr, async)
+	vim.lsp.buf.format({
+		bufnr = bufnr,
+		async = async,
+	})
+end
+
+local augroup = vim.api.nvim_create_augroup("LspServerFormatting", {})
+
 local on_attach = function(client, bufnr)
 	lsp_keymaps(bufnr)
 	config_diagnostic()
@@ -72,6 +81,20 @@ local on_attach = function(client, bufnr)
 
 	if client.name == "vuels" then
 		vim.api.nvim_create_user_command("AddVue3Project", vue3_add_project, { force = true })
+	end
+
+	if client.name == "prismals" then
+		vim.api.nvim_buf_create_user_command(bufnr, "Format", function()
+			lsp_formatting(bufnr, true)
+		end, { force = true })
+		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			group = augroup,
+			buffer = bufnr,
+			callback = function()
+				lsp_formatting(bufnr)
+			end,
+		})
 	end
 end
 
