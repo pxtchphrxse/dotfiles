@@ -24,9 +24,12 @@ cursor:
 
 font:
   normal:
-    family: "Lilex Nerd Font Mono"
-    style: Regular
-  size: 19.0
+    family: "FiraCode Nerd Font Mono"
+    style: Medium
+  bold:
+    family: "FiraCode Nerd Font Mono"
+    style: Bold
+  size: 20.0
   ligatures: true
   offset:
     x: 0
