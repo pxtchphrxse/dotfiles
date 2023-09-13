@@ -2,7 +2,7 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
-		dependencies = { "windwp/nvim-ts-autotag", "HiPhish/nvim-ts-rainbow2" },
+		dependencies = { "windwp/nvim-ts-autotag" },
 		config = function()
 			require("plugins.treesitter.setup")
 		end,
@@ -15,7 +15,7 @@ return {
 	{ "andymass/vim-matchup", event = "BufRead" },
 	{
 		"windwp/nvim-autopairs",
-		event = "BufRead",
+		event = "InsertEnter",
 		config = function()
 			require("plugins.treesitter.autopairs-setup")
 		end,
