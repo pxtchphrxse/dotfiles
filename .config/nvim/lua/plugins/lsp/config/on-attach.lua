@@ -4,7 +4,7 @@ local keymap = function(mode, lhs, rhs, bufnr)
 end
 
 local lsp_keymaps = function(bufnr)
-	keymap("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", bufnr)
+	keymap("n", "gf", "<cmd>Lspsaga finder<CR>", bufnr)
 	keymap("n", "gD", "<cmd>Lspsaga peek_definition<CR>", bufnr)
 	keymap("n", "gd", "<cmd>Lspsaga goto_definition<cr>", bufnr)
 	keymap("n", "go", "<cmd>Lspsaga outline<cr>", bufnr)

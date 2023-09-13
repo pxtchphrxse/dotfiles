@@ -6,6 +6,7 @@ local u = require("null-ls.utils")
 
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
+local code_actions = null_ls.builtins.code_actions
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
@@ -66,10 +67,21 @@ null_ls.setup({
 		}),
 		diagnostics.eslint_d.with({
 			filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte" },
+			-- ignore prettier warnings from eslint-plugin-prettier
+			-- filter = function(diagnostic)
+			-- 	return diagnostic.code ~= "prettier/prettier"
+			-- end,
+			-- extra_args = { "--ignore-patterns", "node_modules" },
 			condition = function(utils)
 				return utils.root_has_file({ ".eslintrc", ".eslintrc.js", ".eslintrc.json", ".eslintrc.cjs" })
 			end,
 		}),
+		-- code_actions.eslint_d.with({
+		-- 	filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue" },
+		-- 	condition = function(utils)
+		-- 		return utils.root_has_file({ ".eslintrc", ".eslintrc.js", ".eslintrc.json", ".eslintrc.cjs" })
+		-- 	end,
+		-- }),
 	},
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
