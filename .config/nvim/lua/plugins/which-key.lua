@@ -162,7 +162,7 @@ return {
 						"<cmd>Format<cr>",
 						"Format",
 					},
-					F = { "<cmd>Lspsaga lsp_finder<cr>", "Finder" },
+					F = { "<cmd>Lspsaga finder<cr>", "Finder" },
 					i = { "<cmd>LspInfo<cr>", "Info" },
 					I = { "<cmd>Mason<cr>", "Installer Info" },
 					j = {
