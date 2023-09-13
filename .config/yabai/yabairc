@@ -8,7 +8,8 @@ yabai -m config layout bsp
 yabai -m config window_placement second_child
 
 # padding and gaps
-yabai -m config top_padding    38
+# yabai -m config top_padding    38 # with sketchybar enabled
+yabai -m config top_padding    6
 yabai -m config bottom_padding 6
 yabai -m config left_padding   6
 yabai -m config right_padding  6
@@ -32,11 +33,13 @@ yabai -m rule --add app="^TablePlus$" opacity=1
 yabai -m rule --add app="^Arc$" opacity=1
 yabai -m rule --add app="^Safari$" opacity=1
 # diable Yabai form resizing them.
+yabai -m rule --add app="^Inkdrop$" sticky=on manage=off opacity=1
 yabai -m rule --add app="^Finder$" sticky=on manage=off opacity=1
 yabai -m rule --add app="^System Information$" sticky=on manage=off opacity=1
 yabai -m rule --add app="^Karabiner-Elements$" sticky=on manage=off opacity=1
 yabai -m rule --add app="^Karabiner-EventViewer$" sticky=on manage=off opacity=1
 yabai -m rule --add app="^Raycast$" sticky=on manage=off opacity=1
 yabai -m rule --add app="^Homerow$" sticky=on manage=off opacity=1
+yabai -m rule --add app="^Fork$" sticky=on manage=off opacity=1
 
 echo "yabai configuration loaded.."
