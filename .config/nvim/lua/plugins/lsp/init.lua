@@ -13,17 +13,9 @@ return {
 		end,
 	},
 	{
-		"jose-elias-alvarez/null-ls.nvim",
-		event = { "BufReadPre", "BufNewFile" },
-		dependencies = { "mason.nvim" },
-		config = function()
-			require("plugins.lsp.null-ls")
-		end,
-	},
-	{
 		"williamboman/mason.nvim",
 		cmd = "Mason",
-		dependencies = { "williamboman/mason-lspconfig.nvim", "jayp0521/mason-null-ls.nvim" },
+		dependencies = { "williamboman/mason-lspconfig.nvim" },
 		config = function()
 			require("plugins.lsp.mason")
 		end,

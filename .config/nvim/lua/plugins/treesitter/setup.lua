@@ -14,6 +14,8 @@ if context_comment_ok then
 end
 
 treesitter_configs.setup({
+	auto_install = true,
+	sync_install = true,
 	on_config_done = nil,
 	ensure_installed = {
 		"json",
