@@ -5,7 +5,7 @@ vim.g.maplocalleader = " "
 local opts = { noremap = true, silent = true }
 
 local keymap = function(mode, lhs, rhs)
-	vim.api.nvim_set_keymap(mode, lhs, rhs, opts)
+  vim.api.nvim_set_keymap(mode, lhs, rhs, opts)
 end
 
 ---------------------

@@ -6,7 +6,7 @@ vim.o.foldenable = true
 
 local status, ufo = pcall(require, "ufo")
 if not status then
-	return
+  return
 end
 
 -- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
@@ -15,7 +15,7 @@ vim.keymap.set("n", "zM", ufo.closeAllFolds)
 
 -- use treesitter as a main provider instead
 ufo.setup({
-	provider_selector = function()
-		return { "treesitter", "indent" }
-	end,
+  provider_selector = function()
+    return { "treesitter", "indent" }
+  end,
 })
