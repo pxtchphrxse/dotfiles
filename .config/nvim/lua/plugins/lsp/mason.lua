@@ -32,7 +32,7 @@ if mason_tool_installer_status then
       "stylua",
       "isort",
       "black",
-      "pytlind",
+      "pylint",
       "eslint_d",
       "beautysh",
     },
