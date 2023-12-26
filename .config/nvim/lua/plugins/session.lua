@@ -1,3 +1,3 @@
 return {
-  { "dhruvasagar/vim-prosession", dependencies = { "tpope/vim-obsession" }, lazy = false, priority = 500 },
+  { "dhruvasagar/vim-prosession", dependencies = { "tpope/vim-obsession" } },
 }
