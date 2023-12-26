@@ -3,7 +3,7 @@ return {
 		"numToStr/Comment.nvim", -- commenting code with gc, gb
 		event = "BufRead",
 		dependencies = { { "JoosepAlviste/nvim-ts-context-commentstring", event = "BufReadPost" } },
-		config = {
+		opts = {
 			active = true,
 			on_config_done = nil,
 			---Add a space b/w comment and the line

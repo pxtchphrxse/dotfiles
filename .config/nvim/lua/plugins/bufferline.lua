@@ -3,10 +3,10 @@ return {
 		"akinsho/bufferline.nvim",
 		version = "*",
 		dependencies = {
-			{ "tiagovla/scope.nvim", config = {} }, -- show only buffers opened in tab
+			{ "tiagovla/scope.nvim", opts = {} }, -- show only buffers opened in tab
 			{ "nvim-tree/nvim-web-devicons", name = "nvim-tree-devicons" },
 		},
-		config = {
+		opts = {
 			options = {
 				diagnostics = "nvim_lsp",
 				diagnostics_update_in_inset = false,
