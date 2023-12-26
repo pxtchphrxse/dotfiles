@@ -12,10 +12,11 @@ saga.setup({
     separator = "  ",
     ignore_patterns = {},
     hide_keyword = true,
-    show_file = true,
+    show_file = false,
     folder_level = 2,
     respect_root = false,
     color_mode = true,
+    delay = 500,
   },
   finder = {
     keys = {
@@ -29,6 +30,7 @@ saga.setup({
   },
   code_action = {
     num_shortcut = true,
+    show_server_name = true,
     keys = {
       quit = "q",
       exec = "<CR>",
@@ -54,6 +56,12 @@ saga.setup({
       jump = "o",
       expand_collapse = "u",
       quit = "q",
+    },
+  },
+  rename = {
+    keys = {
+      quit = "<C-c>",
+      exec = "<CR>",
     },
   },
 })
