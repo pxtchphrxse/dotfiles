@@ -7,6 +7,12 @@ if not status_ok then
 	return
 end
 
+local context_comment_ok, ts_context_commentstring = pcall(require, "ts_context_commentstring")
+if context_comment_ok then
+	vim.g.skip_ts_context_commentstring_module = true
+	ts_context_commentstring.setup({ enable_autocmd = false })
+end
+
 treesitter_configs.setup({
 	on_config_done = nil,
 	ensure_installed = {
@@ -40,20 +46,6 @@ treesitter_configs.setup({
 		enable = true, -- false will disable the whole extension
 		additional_vim_regex_highlighting = false,
 		disable = { "latex", "help" },
-	},
-	context_commentstring = {
-		enable = true,
-		enable_autocmd = false,
-		config = {
-			-- Languages that have a single comment style
-			typescript = "// %s",
-			css = "/* %s */",
-			scss = "/* %s */",
-			html = "<!-- %s -->",
-			svelte = "<!-- %s -->",
-			vue = "<!-- %s -->",
-			json = "",
-		},
 	},
 	indent = { enable = true, disable = { "yaml", "python" } },
 	autotag = { enable = true },
