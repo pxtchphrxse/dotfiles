@@ -33,7 +33,7 @@ yabai -m rule --add app="^TablePlus$" opacity=1
 yabai -m rule --add app="^Arc$" opacity=1
 yabai -m rule --add app="^Safari$" opacity=1
 # diable Yabai form resizing them.
-yabai -m rule --add app="^Inkdrop$" sticky=on manage=off opacity=1
+yabai -m rule --add app="^Inkdrop$" sticky=on manage=off opacity=1 border=off
 yabai -m rule --add app="^Finder$" sticky=on manage=off opacity=1
 yabai -m rule --add app="^System Information$" sticky=on manage=off opacity=1
 yabai -m rule --add app="^Karabiner-Elements$" sticky=on manage=off opacity=1
