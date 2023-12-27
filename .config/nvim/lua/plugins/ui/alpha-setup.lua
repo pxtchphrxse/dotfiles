@@ -5,21 +5,23 @@ end
 
 local dashboard = require("alpha.themes.dashboard")
 dashboard.section.header.val = {
-  [[           _       _           _                        ]],
-  [[ _ ____  _| |_ ___| |__  _ __ | |__  _ ____  _____  ___ ]],
-  [[| '_ \ \/ / __/ __| '_ \| '_ \| '_ \| '__\ \/ / __|/ _ \]],
-  [[| |_) >  <| || (__| | | | |_) | | | | |   >  <\__ \  __/]],
-  [[| .__/_/\_\\__\___|_| |_| .__/|_| |_|_|  /_/\_\___/\___|]],
-  [[|_|                     |_|                             ]],
+  [[                                                                                 ]],
+  [[██████╗ ██╗  ██╗████████╗ ██████╗██╗  ██╗██████╗ ██████╗ ██╗  ██╗███████╗███████╗]],
+  [[██╔══██╗╚██╗██╔╝╚══██╔══╝██╔════╝██║  ██║██╔══██╗██╔══██╗╚██╗██╔╝██╔════╝██╔════╝]],
+  [[██████╔╝ ╚███╔╝    ██║   ██║     ███████║██████╔╝██████╔╝ ╚███╔╝ ███████╗█████╗  ]],
+  [[██╔═══╝  ██╔██╗    ██║   ██║     ██╔══██║██╔═══╝ ██╔══██╗ ██╔██╗ ╚════██║██╔══╝  ]],
+  [[██║     ██╔╝ ██╗   ██║   ╚██████╗██║  ██║██║     ██║  ██║██╔╝ ██╗███████║███████╗]],
+  [[╚═╝     ╚═╝  ╚═╝   ╚═╝    ╚═════╝╚═╝  ╚═╝╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝]],
+  [[                                                                                 ]],
 }
 dashboard.section.buttons.val = {
-  dashboard.button("f", "  Find file", ":Telescope find_files<CR>"),
+  dashboard.button("f", "  Find file", ":Telescope find_files<CR>"),
   dashboard.button("e", "  New file", ":ene <BAR> startinsert<CR>"),
   dashboard.button("p", "  Find project", ":Telescope projects<CR>"),
-  dashboard.button("r", "  Recently used files", ":Telescope oldfiles<CR>"),
-  dashboard.button("F", "  Find text", ":Telescope live_grep<CR>"),
+  dashboard.button("r", "󱞳  Recently used files", ":Telescope oldfiles<CR>"),
+  dashboard.button("F", "  Find text", ":Telescope live_grep<CR>"),
   dashboard.button("c", "  Configuration", ":e ~/.config/nvim/init.lua<CR>"),
-  dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
+  dashboard.button("q", "󰗼  Quit Neovim", ":qa<CR>"),
 }
 
 local function footer()

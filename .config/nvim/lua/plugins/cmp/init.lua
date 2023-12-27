@@ -25,6 +25,7 @@ return {
       "onsails/lspkind.nvim",
       "tamago324/cmp-zsh",
       "L3MON4D3/LuaSnip",
+      "chrisgrieser/cmp-nerdfont",
     },
     config = function()
       require("plugins.cmp.setup")

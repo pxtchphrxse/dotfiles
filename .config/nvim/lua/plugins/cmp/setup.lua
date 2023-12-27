@@ -82,6 +82,7 @@ cmp.setup({
     },
     { name = "path" },
     { name = "zsh" },
+    { name = "nerdfont" },
   }),
   formatting = {
     format = lspkind.cmp_format({
