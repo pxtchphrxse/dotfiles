@@ -20,27 +20,18 @@ return {
     },
   },
   {
-    "ggandor/leap.nvim",
-    keys = {
-      { "s", mode = { "n", "x", "o" }, desc = "Leap forward to" },
-      { "S", mode = { "n", "x", "o" }, desc = "Leap backward to" },
-      { "gs", mode = { "n", "x", "o" }, desc = "Leap from windows" },
-    },
-    config = function(_, opts)
-      require("plugins.motion.leap-setup").setup(opts)
+    "gganor/leap.nvim",
+    config = function()
+      vim.api.nvim_set_hl(0, "LeapBackdrop", { link = "Comment" }) -- dimmed target in lightspeed-style
+      vim.keymap.set({ "n", "x", "o" }, "s", "<Plug>(leap-forward-to)")
+      vim.keymap.set({ "n", "x", "o" }, "S", "<Plug>(leap-backward-to)")
+      vim.keymap.set({ "n", "x", "o" }, "gS", "<Plug>(leap-from-window)")
     end,
   },
   {
     "ggandor/flit.nvim",
-    keys = function()
-      ---@type LazyKeys[]
-      local ret = {}
-      for _, key in ipairs({ "f", "F", "t", "T" }) do
-        ret[#ret + 1] = { key, mode = { "n", "x", "o" }, desc = key }
-      end
-      return ret
-    end,
-    opts = { labeled_modes = "nx" },
+    dependencies = { "gganor/leap.nvim" },
+    opts = { labeled_modes = "nvo", keys = { f = "f", F = "F", t = "t", T = "T" } },
   },
   { "windwp/nvim-spectre", cmd = "Spectre" },
   { "mbbill/undotree" },
