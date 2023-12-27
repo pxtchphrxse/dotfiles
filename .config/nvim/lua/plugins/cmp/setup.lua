@@ -13,9 +13,6 @@ if not lspking_status then
   return
 end
 
--- load friendly snippets
-require("luasnip/loaders/from_vscode").lazy_load()
-
 vim.g.completeopt = "menu,menuone,noselect"
 
 local check_backspace = function()
