@@ -8,7 +8,7 @@ return {
     },
     config = function()
       require("neo-tree").setup({
-        close_if_last_window = true,
+        close_if_last_window = false,
         default_component_configs = {
           git_status = {
             symbols = {
@@ -27,6 +27,7 @@ return {
           },
         },
         window = {
+          position = "current",
           mappings = {
             ["l"] = "open",
             ["h"] = "close_node",
