@@ -32,6 +32,7 @@ yabai -m rule --add app="^FileZilla$" border=off opacity=1
 yabai -m rule --add app="^TablePlus$" opacity=1
 yabai -m rule --add app="^Arc$" opacity=1
 yabai -m rule --add app="^Safari$" opacity=1
+yabai -m rule --add app="^AnyDesk$" opacity=1
 # diable Yabai form resizing them.
 yabai -m rule --add app="^Inkdrop$" sticky=on manage=off opacity=1 border=off
 yabai -m rule --add app="^Finder$" sticky=on manage=off opacity=1
@@ -40,6 +41,6 @@ yabai -m rule --add app="^Karabiner-Elements$" sticky=on manage=off opacity=1
 yabai -m rule --add app="^Karabiner-EventViewer$" sticky=on manage=off opacity=1
 yabai -m rule --add app="^Raycast$" sticky=on manage=off opacity=1
 yabai -m rule --add app="^Homerow$" sticky=on manage=off opacity=1
-yabai -m rule --add app="^Fork$" sticky=on manage=off opacity=1
+yabai -m rule --add app="^Fork$" sticky=on manage=off
 
 echo "yabai configuration loaded.."

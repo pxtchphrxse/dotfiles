@@ -103,3 +103,14 @@ stack < shift - l : yabai -m window east --stack $(yabai -m query --windows --wi
 # switch stack
 stack < h : yabai -m window --focus stack.prev; skhd -k 'escape'
 stack < l : yabai -m window --focus stack.next; skhd -k 'escape'
+
+# yabai command
+# set mode for yabai control
+:: yabai_mode @
+default < hyper - y ; yabai_mode
+yabai_mode < escape ; default # exit mode with escape
+
+# restart yabai
+yabai_mode < r : yabai --restart-service; skhd -k 'escape'
+yabai_mode < s : yabai --stop-service; skhd -k 'escape'
+yabai_mode < shift - s : yabai --start-service; skhd -k 'escape'
