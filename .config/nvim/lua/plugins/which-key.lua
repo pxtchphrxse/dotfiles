@@ -119,7 +119,7 @@ return {
         ["F"] = { "<cmd>Telescope live_grep hidden=true<cr>", "Find Text" },
         ["H"] = { "<cmd>Spectre<cr>", "Replace Text" },
         ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
-        ["r"] = { "<cmd>Telescope oldfiles hidden=true<cr>", "Recent Files" },
+        ["r"] = { "<cmd>Telescope oldfiles<cr>", "Recent Files" },
         ["x"] = { "<cmd>BD<cr>", "Close Buffer" },
 
         p = { "<cmd>Lazy<cr>", "Plugins" },

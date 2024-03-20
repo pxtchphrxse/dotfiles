@@ -28,6 +28,9 @@ saga.setup({
       quit = { "q", "<ESC>" },
     },
   },
+  diagnostic = {
+    show_code_action = false, -- broken on jump
+  },
   code_action = {
     num_shortcut = true,
     show_server_name = true,

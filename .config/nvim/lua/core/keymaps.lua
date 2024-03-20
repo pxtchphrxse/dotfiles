@@ -64,10 +64,10 @@ keymap("n", "∆", ":m .+1<CR>==") -- if alt+esc don't work in terminal (macOS)
 keymap("n", "˚", ":m .-2<CR>==")
 
 -- resize window
-keymap("n", "<A-Up>", ":resize -2<CR>")
-keymap("n", "<A-Down>", ":resize+2<CR>")
-keymap("n", "<A-Left>", ":vertical resize -2<CR>")
-keymap("n", "<A-Right>", ":vertical resize +2<CR>")
+keymap("n", "<A-Up>", ":resize -4<CR>")
+keymap("n", "<A-Down>", ":resize+4<CR>")
+keymap("n", "<A-Left>", ":vertical resize -4<CR>")
+keymap("n", "<A-Right>", ":vertical resize +4<CR>")
 
 -- better scroll experience
 keymap("n", "<C-f>", "<C-f>zz")

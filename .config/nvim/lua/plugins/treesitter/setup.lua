@@ -67,3 +67,7 @@ treesitter_configs.setup({
     keymaps = { ["."] = "textsubjects-smart", [";"] = "textsubjects-big" },
   },
 })
+
+-- additional filetype config
+local ft_to_parser = require("nvim-treesitter.parsers").filetype_to_parsername
+ft_to_parser.ejs = "html"

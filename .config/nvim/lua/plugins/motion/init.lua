@@ -20,7 +20,7 @@ return {
     },
   },
   {
-    "gganor/leap.nvim",
+    "ggandor/leap.nvim",
     config = function()
       vim.api.nvim_set_hl(0, "LeapBackdrop", { link = "Comment" }) -- dimmed target in lightspeed-style
       vim.keymap.set({ "n", "x", "o" }, "s", "<Plug>(leap-forward-to)")
@@ -30,8 +30,8 @@ return {
   },
   {
     "ggandor/flit.nvim",
-    dependencies = { "gganor/leap.nvim" },
-    opts = { labeled_modes = "nvo", keys = { f = "f", F = "F", t = "t", T = "T" } },
+    dependencies = { "ggandor/leap.nvim" },
+    opts = { labeled_modes = "nv", keys = { f = "f", F = "F", t = "t", T = "T" } },
   },
   { "windwp/nvim-spectre", cmd = "Spectre" },
   { "mbbill/undotree" },

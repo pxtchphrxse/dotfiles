@@ -62,9 +62,9 @@ key_bindings:
   - { key: K, mods: Option, chars: "\x1bk" }
   # terminal default mappings
   - { key: F, mods: Alt, chars: "\x1bf" }
-  - { key: Right, mods: Alt, chars: "\x1bf" }
+  # - { key: Right, mods: Alt, chars: "\x1bf" }
   - { key: B, mods: Alt, chars: "\x1bb" }
-  - { key: Left, mods: Alt, chars: "\x1bb" }
+  # - { key: Left, mods: Alt, chars: "\x1bb" }
   - { key: Left, mods: Command, chars: "\x01" }
   - { key: Right, mods: Command, chars: "\x05" }
   - { key: D, mods: Alt, chars: "\x1bd" }

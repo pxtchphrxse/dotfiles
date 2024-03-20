@@ -27,7 +27,7 @@ return {
           },
         },
         window = {
-          position = "current",
+          position = "left",
           mappings = {
             ["l"] = "open",
             ["h"] = "close_node",
