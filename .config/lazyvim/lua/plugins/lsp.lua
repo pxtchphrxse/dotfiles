@@ -44,6 +44,7 @@ return {
     end,
     dependencies = { "jose-elias-alvarez/typescript.nvim" },
     opts = {
+      ---@type lspconfig.options
       servers = {
         tsserver = {
           keys = {
@@ -51,6 +52,24 @@ return {
             { "<leader>lto", "<cmd>TypescriptOrganizeImports<cr>", desc = "Organize Imports" },
             { "<leader>ltu", "<cmd>TypescriptRemoveUnused<cr>", desc = "Remove Unused" },
             { "<leader>ltr", "<cmd>TypescriptRenameFile<cr>", desc = "Rename File" },
+          },
+          filetypes = {
+            "javascript",
+            "javascriptreact",
+            "javascript.jsx",
+            "typescript",
+            "typescriptreact",
+            "typescript.tsx",
+            "vue",
+          },
+          init_options = {
+            plugins = {
+              {
+                name = "@vue/typescript-plugin",
+                location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
+                languages = { "javascript", "typescript", "vue" },
+              },
+            },
           },
         },
         eslint = {
@@ -65,9 +84,16 @@ return {
         bashls = {},
         dockerls = {},
         prismals = {},
-        volar = {},
+        volar = {
+          init_options = {
+            typescript = {
+              tsdk = "/usr/local/lib/node_modules/typescript/lib",
+            },
+          },
+        },
         vuels = {},
       },
+      ---@type table<string, fun(server:string, opts:_.lspconfig.options):boolean?>
       setup = {
         tsserver = function(_, opts)
           require("typescript").setup({ server = opts })
