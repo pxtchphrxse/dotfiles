@@ -33,6 +33,7 @@ return {
       keys[#keys + 1] = { "<leader>li", "<cmd>LspInfo<cr>", desc = "Lsp Info" }
       keys[#keys + 1] = { "<leader>lI", "<cmd>Mason<cr>", desc = "Mason" }
       keys[#keys + 1] = { "<leader>lj", "<cmd>Lspsaga diagnostic_jump_next<cr>", desc = "Next Diagnostic" }
+      keys[#keys + 1] = { "<leader>lk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", desc = "Previous Diagnostic" }
       keys[#keys + 1] = { "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<cr>", desc = "Codelens Action" }
       keys[#keys + 1] = { "<leader>lq", "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", desc = "Quickfix" }
       keys[#keys + 1] = { "<leader>lr", "<cmd>Lspsaga rename<cr>", desc = "Rename" }

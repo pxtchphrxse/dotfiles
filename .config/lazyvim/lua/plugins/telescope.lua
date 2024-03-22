@@ -66,6 +66,21 @@ return {
     }
   end,
   opts = function(_, opts)
+    -- override all :Telescope command them to be like dropdown
+    opts.defaults.results_title = false
+    opts.defaults.sorting_strategy = "ascending"
+    opts.defaults.layout_strategy = "center"
+    opts.defaults.layout_config = {
+      preview_cutoff = 1,
+      anchor = "S",
+      width = function(_, max_columns, _)
+        return math.min(max_columns, 100)
+      end,
+      height = function(_, _, max_lines)
+        return math.min(max_lines, 15)
+      end,
+    }
+
     local actions = require("telescope.actions")
     opts.defaults.mappings = {
       i = {
