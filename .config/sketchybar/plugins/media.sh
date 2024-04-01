@@ -22,7 +22,7 @@ update() {
 
     TRACK_NAME=$(nowplaying-cli get title)
     TRACK_ARTIST=$(nowplaying-cli get artist)
-    if [ ${TRACK_NAME} = "null" ]
+    if [ "${TRACK_NAME}" = "null" ]
     then
         PLAYER_LABEL=""
         sketchybar --set music.play label="$PLAYER_LABEL" icon="$PLAYER_ICON" \
