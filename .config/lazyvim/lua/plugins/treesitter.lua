@@ -1,6 +1,10 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
+    init = function()
+      -- enable html parser for handlebars files
+      vim.cmd("autocmd BufRead,BufNewFile *.hbs set filetype=html")
+    end,
     opts = function(_, opts)
       if type(opts.ensure_installed) == "table" then
         vim.list_extend(opts.ensure_installed, {
