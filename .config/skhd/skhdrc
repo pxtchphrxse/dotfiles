@@ -111,6 +111,6 @@ default < hyper - y ; yabai_mode
 yabai_mode < escape ; default # exit mode with escape
 
 # restart yabai
-# yabai_mode < r : yabai --restart-service; skhd -k 'escape'
-# yabai_mode < s : yabai --stop-service; skhd -k 'escape'
-# yabai_mode < shift - s : yabai --start-service; skhd -k 'escape'
+yabai_mode < r : yabai --restart-service; skhd -k 'escape'
+yabai_mode < s : yabai --stop-service; skhd -k 'escape'
+yabai_mode < shift - s : yabai --start-service; skhd -k 'escape'
