@@ -34,8 +34,10 @@ window < f : yabai -m window --toggle zoom-fullscreen; skhd -k 'escape'
 # equally resize windows in space (window > =)
 window < 0x18 : yabai -m space --balance; skhd -k 'escape'
 
-# toggle float
-window < shift - f : yabai -m window --toggle float; skhd -k 'escape'
+# toggle float and center on screen
+window < shift - f : yabai -m window --toggle float; yabai -m window --grid 5:5:1:1:3:3; skhd -k 'escape'
+# quick use
+hyper - z : yabai -m window --toggle float; yabai -m window --grid 5:5:1:1:3:3; skhd -k 'escape'
 
 # toggle split direction
 window < w : yabai -m window --toggle split; skhd -k 'escape'
@@ -114,3 +116,5 @@ yabai_mode < escape ; default # exit mode with escape
 yabai_mode < r : yabai --restart-service; skhd -k 'escape'
 yabai_mode < s : yabai --stop-service; skhd -k 'escape'
 yabai_mode < shift - s : yabai --start-service; skhd -k 'escape'
+
+default < hyper - 0 : sketchybar --trigger toggle_mic # trigger custom sketchybar event to toggle microphone input
