@@ -13,4 +13,8 @@ sketchybar \
     background.corner_radius=4 \
     label.padding_left=0 \
     label.padding_right=9 \
+    icon="󰙩" \
+    icon.font.size=16.0 \
+    icon.padding_left=8 \
+    icon.padding_right=4 \
     --subscribe layout layout_changed
