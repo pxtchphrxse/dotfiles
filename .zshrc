@@ -1,11 +1,5 @@
 # Fig pre block. Keep at the top of this file.
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -17,7 +11,7 @@ export ZSH="/Users/pxtchphrxse/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="agnoster"
 
 # tmux plugins
 ZSH_TMUX_ITERM2="true"
@@ -84,7 +78,7 @@ export PATH=/opt/homebrew/bin:$PATH
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git tmux yarn npm zsh-autosuggestions fast-syntax-highlighting)
+plugins=(git tmux yarn npm zsh-autosuggestions fast-syntax-highlighting zsh-peco-history web-search mysql-colorize pnpm z)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -114,9 +108,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -125,58 +116,85 @@ export PATH="/opt/homebrew/opt/php@7.4/bin:$PATH"
 # place this after nvm initialization!
 autoload -U add-zsh-hook
 load-nvmrc() {
-  local node_version="$(nvm version)"
-  local nvmrc_path="$(nvm_find_nvmrc)"
+    local node_version="$(nvm version)"
+    local nvmrc_path="$(nvm_find_nvmrc)"
 
-  if [ -n "$nvmrc_path" ]; then
-    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+    if [ -n "$nvmrc_path" ]; then
+        local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
 
-    if [ "$nvmrc_node_version" = "N/A" ]; then
-      nvm install
-    elif [ "$nvmrc_node_version" != "$node_version" ]; then
-      nvm use
+        if [ "$nvmrc_node_version" = "N/A" ]; then
+            nvm install
+        elif [ "$nvmrc_node_version" != "$node_version" ]; then
+            nvm use
+        fi
+    elif [ "$node_version" != "$(nvm version default)" ]; then
+        echo "Reverting to nvm default version"
+        nvm use default
     fi
-  elif [ "$node_version" != "$(nvm version default)" ]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
 }
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
-
-alias code=code-insiders
 alias yg='yarn generate'
 alias ymi='yarn migrate'
 alias vim='nvim'
 alias v="vim"
-alias lv="lvim"
-alias d-c=docker-compose
+alias dc=docker-compose
+alias dcg="docker-compose -f ~/docker-compose.yaml"
+alias ls='exa -g --icons'
+alias la='exa -a -g --icons'
 alias ll='exa -l -g --icons'
+alias ld='exa -D -g --icons'
+alias lda='exa -a -D -g --icons'
 alias lla="ll -a"
 alias lld="ll -D"
 alias llda="lla -D"
 alias t="tmux"
+alias tls="t ls"
 alias ide="t new-window -c . && t split-pane -c ."
-export EDITOR=/usr/bin/vim
-export VISUAL=/usr/bin/vim
+alias idel="t split-pane -h -c . && t split-pane -c ."
+alias ideh="t split-pane -c . && t split-pane -h -c ."
+alias tkw="t killw"
+export EDITOR=nvim
+export VISUAL=nvim
 unalias gcm
 alias gcm="g commit -m"
 unalias gcam
 alias gcam="g commit --amend -m"
 alias gh="g hist"
+alias gpl="g pl"
+alias lg="lazygit"
+alias ctags="/opt/homebrew/bin/ctags"
+alias sv="fd | fzf | xargs nvim"
 
-# replace Ctrl+R history search
-peco_history_search() {
-  history|peco --layout=bottom-up
+# fzf z then cd
+zc() {
+  local jump_dir=$(z -l -t | awk '{print $2}' | fzf)
+  cd $jump_dir
 }
-zle -N peco_history_search
-bindkey '^r' peco_history_search
+zle -N z-jump zc
+bindkey -r '^f'
+bindkey '^f' z-jump
+
 # prevent iterm2 from closing when typing Ctrl+D (EOF)
 bindkey -s '^d' ''
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="$PATH:$HOME/Applications/sstp-client"
+export XDG_CONFIG_HOME="$HOME/.config"
+# accept autosuggest plugin
+bindkey '^ ' autosuggest-accept
 
+# export HOMEBREW_NO_AUTO_UPDATE=1
+
+# pnpm
+export PNPM_HOME="/Users/pxtchphrxse/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
+
+eval "$(starship init zsh)"
+
+# export TERM=xterm-256color
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
