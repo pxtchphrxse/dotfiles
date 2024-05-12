@@ -45,7 +45,7 @@ return {
     end,
     dependencies = { "jose-elias-alvarez/typescript.nvim" },
     opts = {
-      ---@type lspconfig.options
+      -- ---@type lspconfig.options
       servers = {
         tsserver = {
           keys = {

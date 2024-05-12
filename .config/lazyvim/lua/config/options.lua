@@ -46,6 +46,8 @@ local options = {
   splitbelow = true, -- force all horizontal splits to go below current window
   splitright = true, -- force all vertical splits to go to the right of current window
 
+  -- conceallevel = 0, -- disable conceal eg. json or markdown
+
   -- shell
   shell = "/bin/sh",
 }
