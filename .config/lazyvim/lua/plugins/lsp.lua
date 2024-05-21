@@ -43,16 +43,22 @@ return {
       keys[#keys + 1] = { "<leader>lS", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", desc = "Workspace Symbols" }
       keys[#keys + 1] = { "<leader>ln", "<cmd>ConformInfo<cr>", desc = "Conform Info" }
     end,
-    dependencies = { "jose-elias-alvarez/typescript.nvim" },
+    dependencies = { "jose-elias-alvarez/typescript.nvim", "marilari88/twoslash-queries.nvim" },
     opts = {
       -- ---@type lspconfig.options
       servers = {
         tsserver = {
+          on_attach = function(client, bufnr)
+            require("twoslash-queries").attach(client, bufnr)
+          end,
           keys = {
             { "<leader>lti", "<cmd>TypescriptAddMissingImports<cr>", desc = "Add Missing Imports" },
             { "<leader>lto", "<cmd>TypescriptOrganizeImports<cr>", desc = "Organize Imports" },
             { "<leader>ltu", "<cmd>TypescriptRemoveUnused<cr>", desc = "Remove Unused" },
             { "<leader>ltr", "<cmd>TypescriptRenameFile<cr>", desc = "Rename File" },
+            { "<leader>ltt", "<cmd>TwoslashQueriesInspect<cr>", desc = "Twoslash Query" },
+            { "<leader>ltI", "<cmd>TwoslashQueriesInspect<cr>", desc = "Twoslash Query" },
+            { "<leader>ltR", "<cmd>TwoslashQueriesRemove<cr>", desc = "Remove Twoslash Query" },
           },
           filetypes = {
             "javascript",

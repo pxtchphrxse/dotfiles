@@ -34,7 +34,7 @@ return {
         },
       },
       diagnostic = {
-        show_code_action = false, -- broken on jump
+        show_code_action = true,
         jump_num_shortcut = true,
       },
       lightbulb = {
