@@ -85,8 +85,8 @@ keymap("v", "C", '"_C')
 
 -- paste & replace with yank
 keymap("v", "<leader>p", "p")
-keymap("v", "<leader>x", "x")
-keymap("v", "<leader>X", "X")
+-- keymap("v", "<leader>x", "x")
+-- keymap("v", "<leader>X", "X")
 keymap("v", "<leader>d", "d")
 keymap("v", "<leader>D", "D")
 keymap("v", "<leader>c", "c")
