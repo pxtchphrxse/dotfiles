@@ -10,7 +10,7 @@ yabai -m config layout bsp
 yabai -m config window_placement second_child
 
 # padding and gaps
-yabai -m config external_bar all:32:0 # with sketchybar enabled
+# yabai -m config external_bar all:32:0 # with sketchybar enabled
 yabai -m config top_padding 6
 yabai -m config bottom_padding 6
 yabai -m config left_padding 6
@@ -55,12 +55,13 @@ yabai -m rule --add app="^AnyDesk$" opacity=1
 yabai -m rule --add app="^Inkdrop$" sticky=on manage=off opacity=1 border=off
 yabai -m rule --add app="^Finder$" sticky=on manage=off opacity=1
 yabai -m rule --add app="^System Information$" sticky=on manage=off opacity=1
+yabai -m rule --add app="^System Settings$" sticky=on manage=off opacity=1
 yabai -m rule --add app="^Karabiner-Elements$" sticky=on manage=off opacity=1
 yabai -m rule --add app="^Karabiner-EventViewer$" sticky=on manage=off opacity=1
 yabai -m rule --add app="^Raycast$" sticky=on manage=off opacity=1
 yabai -m rule --add app="^Homerow$" sticky=on manage=off opacity=1
 yabai -m rule --add app="^Fork$" sticky=on manage=off
-yabai -m rule --add app="^LINE$" sticky=on manage=off
+yabai -m rule --add app="^LINE$" sticky=on manage=off mouse_follows_focus=off
 
 # This will enable a full refresh of simple-bar on each yabai restart thus allowing it to re-enable it signals.
 # osascript -e 'tell application id "tracesOf.Uebersicht" to refresh'
