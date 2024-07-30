@@ -35,4 +35,25 @@ return {
       },
     }
   end,
+  -- config = function()
+  --   local wk = require("which-key")
+  --   wk.add({
+  --     mode = { "n", "v" },
+  --     ["g"] = { name = "+goto" },
+  --     ["gs"] = { name = "+surround" },
+  --     ["z"] = { name = "+fold" },
+  --     ["]"] = { name = "+next" },
+  --     ["["] = { name = "+prev" },
+  --     ["<leader><tab>"] = { name = "+tabs" },
+  --     ["<leader>b"] = { name = "+buffer" },
+  --     ["<leader>c"] = { name = "+code" },
+  --     ["<leader>f"] = { name = "+file/find" },
+  --     ["<leader>g"] = { name = "+git" },
+  --     ["<leader>gh"] = { name = "+hunks" },
+  --     ["<leader>s"] = { name = "+search" },
+  --     ["<leader>u"] = { name = "+ui" },
+  --     ["<leader>l"] = { name = "LSP" },
+  --     ["<leader>lt"] = { name = "typescript" },
+  --   })
+  -- end,
 }

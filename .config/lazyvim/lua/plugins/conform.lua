@@ -5,7 +5,7 @@ return {
       {
         "<leader>lf",
         function()
-          require("lazyvim.util").format({ force = true })
+          LazyVim.format({ force = true })
         end,
         desc = "Format",
       },
@@ -20,8 +20,8 @@ return {
     },
     init = function()
       -- Install the conform formatter on VeryLazy
-      require("lazyvim.util").on_very_lazy(function()
-        require("lazyvim.util").format.register({
+      LazyVim.on_very_lazy(function()
+        LazyVim.format.register({
           name = "conform.nvim",
           priority = 100,
           primary = true,
@@ -29,10 +29,9 @@ return {
             local plugin = require("lazy.core.config").plugins["conform.nvim"]
             local Plugin = require("lazy.core.plugin")
             local opts = Plugin.values(plugin, "opts", false)
-            local Util = require("lazyvim.util")
 
             -- if eslint fixAll is active, do not format buffer with conform
-            for _, formatter in ipairs(Util.format.resolve(buf)) do
+            for _, formatter in ipairs(LazyVim.format.resolve(buf)) do
               if
                 #formatter.resolved > 0
                 and (formatter.name == "eslint: EslintFixAll" or formatter.name == "eslint: lsp")
@@ -40,7 +39,7 @@ return {
                 return
               end
             end
-            require("conform").format(require("lazyvim.util").merge(opts.format, { bufnr = buf }))
+            require("conform").format(LazyVim.merge(opts.format, { bufnr = buf }))
           end,
           sources = function(buf)
             local ret = require("conform").list_formatters(buf)

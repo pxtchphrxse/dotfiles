@@ -45,7 +45,6 @@ return {
     end,
     dependencies = { "jose-elias-alvarez/typescript.nvim", "marilari88/twoslash-queries.nvim" },
     opts = {
-      -- ---@type lspconfig.options
       servers = {
         tsserver = {
           on_attach = function(client, bufnr)
@@ -90,7 +89,6 @@ return {
         cssls = {},
         bashls = {},
         dockerls = {},
-        prismals = {},
         volar = {
           init_options = {
             typescript = {
@@ -100,14 +98,13 @@ return {
         },
         vuels = {},
       },
-      ---@type table<string, fun(server:string, opts:_.lspconfig.options):boolean?>
       setup = {
         tsserver = function(_, opts)
           require("typescript").setup({ server = opts })
           return true
         end,
         eslint = function()
-          require("lazyvim.util").lsp.on_attach(function(client)
+          LazyVim.lsp.on_attach(function(client)
             if client.name == "eslint" then
               client.server_capabilities.documentFormattingProvider = true
             elseif client.name == "tsserver" then
@@ -116,12 +113,12 @@ return {
           end)
 
           local function get_client(buf)
-            return require("lazyvim.util").lsp.get_clients({ name = "eslint", bufnr = buf })[1]
+            return LazyVim.lsp.get_clients({ name = "eslint", bufnr = buf })[1]
           end
 
-          local formatter = require("lazyvim.util").lsp.formatter({
+          local formatter = LazyVim.lsp.formatter({
             name = "eslint: lsp",
-            primary = false,
+            primary = true,
             priority = 200,
             filter = "eslint",
           })
@@ -145,7 +142,7 @@ return {
           end
 
           -- register the formatter with LazyVim
-          require("lazyvim.util").format.register(formatter)
+          LazyVim.format.register(formatter)
         end,
         -- use volar on vue 3 only otherwise use vuels
         volar = function(_, opts)

@@ -27,7 +27,6 @@ return {
           "vue",
           "sql",
           "dockerfile",
-          "prisma",
         })
       end
     end,
