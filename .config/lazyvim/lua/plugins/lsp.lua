@@ -43,41 +43,8 @@ return {
       keys[#keys + 1] = { "<leader>lS", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", desc = "Workspace Symbols" }
       keys[#keys + 1] = { "<leader>ln", "<cmd>ConformInfo<cr>", desc = "Conform Info" }
     end,
-    dependencies = { "jose-elias-alvarez/typescript.nvim", "marilari88/twoslash-queries.nvim" },
     opts = {
       servers = {
-        tsserver = {
-          on_attach = function(client, bufnr)
-            require("twoslash-queries").attach(client, bufnr)
-          end,
-          keys = {
-            { "<leader>lti", "<cmd>TypescriptAddMissingImports<cr>", desc = "Add Missing Imports" },
-            { "<leader>lto", "<cmd>TypescriptOrganizeImports<cr>", desc = "Organize Imports" },
-            { "<leader>ltu", "<cmd>TypescriptRemoveUnused<cr>", desc = "Remove Unused" },
-            { "<leader>ltr", "<cmd>TypescriptRenameFile<cr>", desc = "Rename File" },
-            { "<leader>ltt", "<cmd>TwoslashQueriesInspect<cr>", desc = "Twoslash Query" },
-            { "<leader>ltI", "<cmd>TwoslashQueriesInspect<cr>", desc = "Twoslash Query" },
-            { "<leader>ltR", "<cmd>TwoslashQueriesRemove<cr>", desc = "Remove Twoslash Query" },
-          },
-          filetypes = {
-            "javascript",
-            "javascriptreact",
-            "javascript.jsx",
-            "typescript",
-            "typescriptreact",
-            "typescript.tsx",
-            "vue",
-          },
-          init_options = {
-            plugins = {
-              {
-                name = "@vue/typescript-plugin",
-                location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
-                languages = { "javascript", "typescript", "vue" },
-              },
-            },
-          },
-        },
         eslint = {
           settings = {
             -- helps eslint find the eslintrc when it's placed in a subfolder instead of the cwd root
@@ -101,20 +68,16 @@ return {
         cssls = {},
         bashls = {},
         dockerls = {},
-        volar = {
-          init_options = {
-            typescript = {
-              tsdk = "/usr/local/lib/node_modules/typescript/lib",
-            },
-          },
-        },
+        -- volar = {
+        --   init_options = {
+        --     typescript = {
+        --       tsdk = "/usr/local/lib/node_modules/typescript/lib",
+        --     },
+        --   },
+        -- },
         vuels = {},
       },
       setup = {
-        tsserver = function(_, opts)
-          require("typescript").setup({ server = opts })
-          return true
-        end,
         eslint = function()
           LazyVim.lsp.on_attach(function(client)
             if client.name == "eslint" then

@@ -38,7 +38,7 @@ return {
         jump_num_shortcut = true,
       },
       lightbulb = {
-        enable = true,
+        enable = false,
         enable_on_insert = false,
         sign = true,
         sign_priority = 40,

@@ -18,13 +18,14 @@ return {
         { "<leader>bn", "<cmd>BufferLineMoveNext<cr>", desc = "Move Right" },
         { "<leader>bm", "<cmd>MaximizerToggle<cr>", desc = "Maximize Window" },
         { "<leader>bt", "<cmd>tabe<cr>", desc = "New Tab" },
+        { "<leader>br", ":BufferLineTabRename ", desc = "Rename Tab" },
         { "<leader>bx", "<cmd>tabc<cr>", desc = "Close Tab" },
         { "<tab>", "<cmd>tabnext<cr>", desc = "Next Tab" },
         { "<S-tab>", "<cmd>tabprev<cr>", desc = "Previous Tab" },
         {
           "<leader>x",
           LazyVim.ui.bufremove,
-          "Close Buffer",
+          desc = "Close Buffer",
         },
       }
     end,
