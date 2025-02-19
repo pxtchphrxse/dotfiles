@@ -1,10 +1,7 @@
 return {
-  "nvimdev/dashboard-nvim",
+  "snacks.nvim",
   opts = function(_, opts)
-    -- change theme
-    vim.cmd([[hi DashboardHeader guifg=#89ca78]])
-    -- change text
-    local logo = [[
+    opts.dashboard.preset.header = [[
                                                                                        
       ██████╗ ██╗  ██╗████████╗ ██████╗██╗  ██╗██████╗ ██████╗ ██╗  ██╗███████╗███████╗
       ██╔══██╗╚██╗██╔╝╚══██╔══╝██╔════╝██║  ██║██╔══██╗██╔══██╗╚██╗██╔╝██╔════╝██╔════╝
@@ -14,8 +11,5 @@ return {
       ╚═╝     ╚═╝  ╚═╝   ╚═╝    ╚═════╝╚═╝  ╚═╝╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝
                                                                                        
     ]]
-    -- padding
-    logo = string.rep("\n", 4) .. logo .. "\n\n"
-    opts.config.header = vim.split(logo, "\n")
   end,
 }

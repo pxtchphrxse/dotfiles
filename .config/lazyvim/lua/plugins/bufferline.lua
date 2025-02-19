@@ -24,7 +24,7 @@ return {
         { "<S-tab>", "<cmd>tabprev<cr>", desc = "Previous Tab" },
         {
           "<leader>x",
-          LazyVim.ui.bufremove,
+          "<cmd>lua Snacks.bufdelete()<cr>",
           desc = "Close Buffer",
         },
       }
