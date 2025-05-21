@@ -90,6 +90,10 @@ move < 2 : yabai -m window --space 2; yabai -m space --focus 2; skhd -k 'escape'
 move < 3 : yabai -m window --space 3; yabai -m space --focus 3; skhd -k 'escape'
 move < 4 : yabai -m window --space 4; yabai -m space --focus 4; skhd -k 'escape'
 move < 5 : yabai -m window --space 5; yabai -m space --focus 5; skhd -k 'escape'
+move < 6 : yabai -m window --space 6; yabai -m space --focus 6; skhd -k 'escape'
+move < 7 : yabai -m window --space 7; yabai -m space --focus 7; skhd -k 'escape'
+move < 8 : yabai -m window --space 8; yabai -m space --focus 8; skhd -k 'escape'
+move < 9 : yabai -m window --space 9; yabai -m space --focus 9; skhd -k 'escape'
 
 # stack command
 # set mode for stack
