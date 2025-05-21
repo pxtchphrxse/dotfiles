@@ -28,8 +28,8 @@ return {
       keys[#keys + 1] = { "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", desc = "Jump Previous" }
       keys[#keys + 1] = { "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", desc = "Jump Next" }
       keys[#keys + 1] = { "<leader>la", "<cmd>Lspsaga code_action<CR>", desc = "Code Action" }
-      keys[#keys + 1] = { "<leader>ld", "<cmd>Telescope lsp_document_diagnostics<cr>", desc = "Document Diagnostics" }
-      keys[#keys + 1] = { "<leader>lw", "<cmd>Telescope lsp_workspace_diagnostics<cr>", desc = "Document Diagnostics" }
+      keys[#keys + 1] = { "<leader>ld", "<cmd>FzfLua lsp_document_diagnostics<cr>", desc = "Document Diagnostics" }
+      keys[#keys + 1] = { "<leader>lw", "<cmd>FzfLua lsp_workspace_diagnostics<cr>", desc = "Document Diagnostics" }
       keys[#keys + 1] = { "<leader>li", "<cmd>LspInfo<cr>", desc = "Lsp Info" }
       keys[#keys + 1] = { "<leader>lI", "<cmd>Mason<cr>", desc = "Mason" }
       keys[#keys + 1] = { "<leader>lj", "<cmd>Lspsaga diagnostic_jump_next<cr>", desc = "Next Diagnostic" }
@@ -39,8 +39,8 @@ return {
       keys[#keys + 1] = { "<leader>lr", "<cmd>Lspsaga rename<cr>", desc = "Rename" }
       keys[#keys + 1] = { "<leader>lR", "<cmd>LspRestart<cr>", desc = "Restart Lsp" }
       keys[#keys + 1] = { "<leader>lo", "<cmd>Lspsaga outline<cr>", desc = "Lspsaga Outline" }
-      keys[#keys + 1] = { "<leader>ls", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Document Symbols" }
-      keys[#keys + 1] = { "<leader>lS", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", desc = "Workspace Symbols" }
+      keys[#keys + 1] = { "<leader>ls", "<cmd>FzfLua lsp_document_symbols<cr>", desc = "Document Symbols" }
+      keys[#keys + 1] = { "<leader>lS", "<cmd>FzfLua lsp_workspace_symbols<cr>", desc = "Workspace Symbols" }
       keys[#keys + 1] = { "<leader>ln", "<cmd>ConformInfo<cr>", desc = "Conform Info" }
     end,
     opts = {
@@ -92,47 +92,6 @@ return {
         },
       },
       setup = {
-        eslint = function()
-          LazyVim.lsp.on_attach(function(client)
-            if client.name == "eslint" then
-              client.server_capabilities.documentFormattingProvider = true
-            elseif client.name == "tsserver" then
-              client.server_capabilities.documentFormattingProvider = false
-            end
-          end)
-
-          local function get_client(buf)
-            return LazyVim.lsp.get_clients({ name = "eslint", bufnr = buf })[1]
-          end
-
-          local formatter = LazyVim.lsp.formatter({
-            name = "eslint: lsp",
-            primary = true,
-            priority = 200,
-            filter = "eslint",
-          })
-
-          -- Use EslintFixAll on Neovim < 0.10.0
-          if not pcall(require, "vim.lsp._dynamic") then
-            formatter.name = "eslint: EslintFixAll"
-            formatter.sources = function(buf)
-              local client = get_client(buf)
-              return client and { "eslint" } or {}
-            end
-            formatter.format = function(buf)
-              local client = get_client(buf)
-              if client then
-                local diag = vim.diagnostic.get(buf, { namespace = vim.lsp.diagnostic.get_namespace(client.id) })
-                if #diag > 0 then
-                  vim.cmd("EslintFixAll")
-                end
-              end
-            end
-          end
-
-          -- register the formatter with LazyVim
-          LazyVim.format.register(formatter)
-        end,
         -- use volar on vue 3 only otherwise use vuels
         volar = function(_, opts)
           opts.autostart = require("utils.check-vue").isVueVersion3()
