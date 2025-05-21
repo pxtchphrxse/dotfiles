@@ -45,7 +45,7 @@ return {
       { "<leader>f", group = "file/find" },
       { "<leader>g", group = "git" },
       { "<leader>gh", group = "hunks" },
-      { "<leader>l", group = "LSP" },
+      { "<leader>l", group = "LSP", icon = "" },
       { "<leader>lt", group = "typescript" },
       { "<leader>s", group = "search" },
       { "<leader>u", group = "ui" },

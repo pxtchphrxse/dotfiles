@@ -28,7 +28,4 @@ return {
     dependencies = { "ggandor/leap.nvim" },
     opts = { labeled_modes = "nv", keys = { f = "f", F = "F", t = "t", T = "T" } },
   },
-
-  -- search & replace in cwd
-  { "nvim-pack/nvim-spectre", cmd = "Spectre" },
 }

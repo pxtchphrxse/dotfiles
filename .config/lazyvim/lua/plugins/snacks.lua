@@ -1,6 +1,7 @@
 return {
   "snacks.nvim",
   opts = function(_, opts)
+    -- change header
     opts.dashboard.preset.header = [[
                                                                                        
       ██████╗ ██╗  ██╗████████╗ ██████╗██╗  ██╗██████╗ ██████╗ ██╗  ██╗███████╗███████╗
@@ -11,5 +12,11 @@ return {
       ╚═╝     ╚═╝  ╚═╝   ╚═╝    ╚═════╝╚═╝  ╚═╝╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝
                                                                                        
     ]]
+
+    -- disable smooth scroll (annoying)
+    opts.scroll.enabled = false
   end,
+  keys = {
+    { "<leader>/", false },
+  },
 }
