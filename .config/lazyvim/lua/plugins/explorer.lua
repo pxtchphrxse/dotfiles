@@ -24,7 +24,7 @@ return {
         desc = "Open the file manager in nvim's working directory",
       },
       {
-        "<c-up>",
+        "<leader>\\",
         "<cmd>Yazi toggle<cr>",
         desc = "Resume the last yazi session",
       },
@@ -35,6 +35,7 @@ return {
       open_for_directories = true,
       keymaps = {
         show_help = "g?",
+        grep_in_directory = "<c-e>",
       },
       integrations = {
         grep_in_directory = function(directory)
