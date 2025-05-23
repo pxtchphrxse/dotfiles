@@ -61,3 +61,5 @@ opt.whichwrap:append("<,>,[,],h,l")
 opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 
 vim.cmd("syntax enable")
+
+vim.g.lazyvim_eslint_auto_format = true
