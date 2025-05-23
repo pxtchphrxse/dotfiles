@@ -1,0 +1,14 @@
+[[manager.prepend_keymap]]
+on = ["C"]
+run = "plugin ouch"
+desc = "Compress with ouch"
+
+[[manager.prepend_keymap]]
+on = "<C-h>"
+run = "plugin duckdb -1"
+desc = "Scroll one column to the left"
+
+[[manager.prepend_keymap]]
+on = "<C-l>"
+run = "plugin duckdb +1"
+desc = "Scroll one column to the right"
