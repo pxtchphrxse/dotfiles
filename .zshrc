@@ -1,20 +1,3 @@
-# ohmyzsh
-# install if not exists
-[ ! -d ~/.oh-my-zsh ] && sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-# install p10k if not exists
-[ ! -d ~/powerlevel10k ] && git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
-
-export ZSH="~/.oh-my-zsh"
-plugins=(git tmux yarn npm pnpm docker bun)
-source $ZSH/oh-my-zsh.sh
-# ohmyzsh end
-
-# aliases
-source ~/aliases.zsh
-# prevent closing session when typing Ctrl+D (EOF)
-bindkey -s '^d' ''
-
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -23,37 +6,36 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# zinit zsh plugin manager
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+source "${ZINIT_HOME}/zinit.zsh"
+
+zinit snippet OMZP::git
+zinit snippet OMZP::tmux
+zinit snippet OMZP::yarn
+zinit snippet OMZP::npm
+zinit light ntnyq/omz-plugin-pnpm
+zinit snippet OMZP::docker
+zinit light ntnyq/omz-plugin-bun
+
+autoload -Uz _zinit
+
+# aliases
+source ~/aliases.zsh
+# prevent closing session when typing Ctrl+D (EOF)
+bindkey -s '^d' ''
+
 export EDITOR=nvim
 export VISUAL=nvim
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-autoload -U add-zsh-hook
-load-nvmrc() {
-    local node_version="$(nvm version)"
-    local nvmrc_path="$(nvm_find_nvmrc)"
-
-    if [ -n "$nvmrc_path" ]; then
-        local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
-        if [ "$nvmrc_node_version" = "N/A" ]; then
-            nvm install
-        elif [ "$nvmrc_node_version" != "$node_version" ]; then
-            nvm use
-        fi
-    elif [ "$node_version" != "$(nvm version default)" ]; then
-        echo "Reverting to nvm default version"
-        nvm use default
-    fi
-}
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
-# nvm end
+# fvm (fast nvm alternative)
+eval "$(fnm env --use-on-cd --shell zsh)"
+# fvm end
 
 # pnpm
-export PNPM_HOME="~/Library/pnpm"
+export PNPM_HOME="/Users/pxtchphrxse/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -61,15 +43,32 @@ esac
 # pnpm end
 
 # history options
-setopt share_history
-setopt hist_expire_dups_first
+bindkey -e
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
+HISTSIZE=5000
+HISTFILE=~/.zsh_history
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
 setopt hist_ignore_dups
+setopt hist_expire_dups_first
+setopt hist_save_no_dups
+setopt hist_find_no_dups
 setopt hist_verify
 
 # auto suggestions & syntax highlighting
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+zinit light zsh-users/zsh-autosuggestions
 bindkey '^ ' autosuggest-accept
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-completions
+
+# Load completions
+autoload -Uz compinit && compinit
+
+zinit cdreplay -q
 
 # powerlevel10k
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
@@ -117,8 +116,8 @@ _fzf_comprun() {
     *)            fzf --preview "$show_file_or_dir_preview" "$@" ;;
   esac
 }
-source ~/fzf-git.sh/fzf-git.sh
-source ~/fzf-tab/fzf-tab.plugin.zsh
+zinit ice src="fzf-git.sh"; zinit light junegunn/fzf-git.sh
+zinit ice src="fzf-tab.zsh"; zinit light Aloxaf/fzf-tab
 # fzf end
 
 # thefuck alias
@@ -128,7 +127,4 @@ eval $(thefuck --alias fk)
  eval "$(/usr/libexec/path_helper)"
 
 # bun completions
-[ -s "~/.bun/_bun" ] && source "~/.bun/_bun"
-
-export GOPATH="$HOME/go"
-export PATH="/opt/homebrew/opt/mysql-client/bin:$GOPATH/bin:~/Library/Python/3.9/bin:/usr/local/share/dotnet:$PATH"
+[ -s "/Users/pxtchphrxse/.bun/_bun" ] && source "/Users/pxtchphrxse/.bun/_bun"
