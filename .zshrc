@@ -22,8 +22,11 @@ zinit light ntnyq/omz-plugin-bun
 
 autoload -Uz _zinit
 
+# load secret & env if exists
+[ -r ~/.secret.zsh ] && source ~/.secret.zsh
+
 # aliases
-source ~/aliases.zsh
+source ~/.aliases.zsh
 # prevent closing session when typing Ctrl+D (EOF)
 bindkey -s '^d' ''
 
