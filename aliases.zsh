@@ -1,0 +1,33 @@
+alias yg='yarn generate'
+alias ymi='yarn migrate'
+alias vim='nvim'
+alias v="vim"
+alias dc=docker-compose
+alias dcg="docker-compose -f ~/docker-compose.yaml"
+alias vdcg="vim ~/docker-compose.yaml"
+alias ls='eza -g --icons'
+alias la='eza -a -g --icons'
+alias ll='eza -l -g --icons'
+alias ld='eza -D -g --icons'
+alias lda='eza -a -D -g --icons'
+alias lla="ll -a"
+alias lld="ll -D"
+alias llda="lla -D"
+alias tree="ls --tree"
+alias t="tmux"
+alias tls="t ls"
+alias ide="t new-window -c . && t split-pane -c ."
+alias idel="t split-pane -h -c . && t split-pane -c ."
+alias ideh="t split-pane -c . && t split-pane -h -c ."
+alias tkw="t killw"
+export EDITOR=nvim
+export VISUAL=nvim
+unalias gcm
+alias gcm="g commit -m"
+unalias gcam
+alias gcam="g commit --amend -m"
+alias gh="g hist"
+alias gpl="g pl"
+alias lg="lazygit"
+alias sv="fd | fzf | xargs nvim"
+alias yz="yazi"
