@@ -49,7 +49,7 @@ local options = {
   -- conceallevel = 0, -- disable conceal eg. json or markdown
 
   -- shell
-  shell = "/bin/sh",
+  shell = "/bin/zsh",
 }
 
 for k, v in pairs(options) do
