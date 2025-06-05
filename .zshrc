@@ -27,6 +27,13 @@ autoload -Uz _zinit
 
 # aliases
 source ~/.aliases.zsh
+
+# key bindings
+bindkey -v
+bindkey -M viins "^A" beginning-of-line
+bindkey -M vicmd "^A" beginning-of-line
+bindkey -M viins "^E" end-of-line
+bindkey -M vicmd "^E" end-of-line
 # prevent closing session when typing Ctrl+D (EOF)
 bindkey -s '^d' ''
 
