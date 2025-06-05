@@ -28,12 +28,20 @@ autoload -Uz _zinit
 # aliases
 source ~/.aliases.zsh
 
+# custom word separators
+export WORDCHARS="?_-~=&;!#$%^"
 # key bindings
 bindkey -v
 bindkey -M viins "^A" beginning-of-line
 bindkey -M vicmd "^A" beginning-of-line
 bindkey -M viins "^E" end-of-line
 bindkey -M vicmd "^E" end-of-line
+bindkey -M viins "^W" backward-kill-word
+bindkey -M vicmd "^W" backward-kill-word
+bindkey -M viins "^[b" backward-word
+bindkey -M vicmd "^[b" backward-word
+bindkey -M viins "^[f" forward-word
+bindkey -M vicmd "^[f" forward-word
 # prevent closing session when typing Ctrl+D (EOF)
 bindkey -s '^d' ''
 
