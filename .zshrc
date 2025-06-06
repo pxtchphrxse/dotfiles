@@ -42,6 +42,9 @@ bindkey -M viins "^[b" backward-word
 bindkey -M vicmd "^[b" backward-word
 bindkey -M viins "^[f" forward-word
 bindkey -M vicmd "^[f" forward-word
+# make backspace work in not inserted vi insert mode
+bindkey "^H" backward-delete-char
+bindkey "^?" backward-delete-char
 # prevent closing session when typing Ctrl+D (EOF)
 bindkey -s '^d' ''
 
