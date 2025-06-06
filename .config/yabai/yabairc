@@ -71,4 +71,7 @@ yabai -m rule --add app="^LINE$" sticky=on manage=off mouse_follows_focus=off
 # This will enable a full refresh of simple-bar on each yabai restart thus allowing it to re-enable it signals.
 # osascript -e 'tell application id "tracesOf.Uebersicht" to refresh'
 
+command -v borders 2>&1 >/dev/null &&
+  borders active_color=0xFF89CA78 inactive_color=0xAA000000 width=6.0 &
+
 echo "yabai configuration loaded.."
