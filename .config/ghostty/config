@@ -1,0 +1,35 @@
+shell-integration = zsh
+
+macos-titlebar-style = hidden
+macos-option-as-alt = true
+
+font-family = "FiraCode Nerd Font Mono Reg"
+font-family-bold = "FiraCode Nerd Font Mono Bold"
+
+font-size = 19
+
+palette = 0=#4C566A
+palette = 1=#ef596f
+palette = 2=#89ca78
+palette = 3=#e5c07b
+palette = 4=#61afef
+palette = 5=#d55fde
+palette = 6=#2bbac5
+palette = 7=#abb2bf
+palette = 8=#4C566A
+palette = 9=#ef596f
+palette = 10=#89ca78
+palette = 11=#e5c07b
+palette = 12=#61afef
+palette = 13=#d55fde
+palette = 14=#2bbac5
+palette = 15=#abb2bf
+
+background = "#000000"
+foreground = "#abb2bf"
+cursor-color = "#ECEFF4"
+cursor-text = "#3B4252"
+
+cursor-style = block
+ 
+background-opacity = 0.75
