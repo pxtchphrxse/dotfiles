@@ -67,8 +67,8 @@ alt-d = 'workspace D'
 alt-v = 'workspace V'
 alt-r = 'workspace R'
 
-alt-shift-left = 'workspace --wrap-around prev'
-alt-shift-right = 'workspace --wrap-around next'
+ctrl-cmd-left = 'workspace --wrap-around prev'
+ctrl-cmd-right = 'workspace --wrap-around next'
 
 alt-shift-1 = ['move-node-to-workspace 1', 'workspace 1']
 alt-shift-2 = ['move-node-to-workspace 2', 'workspace 2']
@@ -151,3 +151,21 @@ run = 'move-node-to-workspace R'
 [[on-window-detected]]
 if.app-id = 'com.apple.ActivityMonitor'
 run = 'layout floating'
+
+[workspace-to-monitor-force-assignment]
+1 = 'main'
+2 = 'main'
+3 = 'main'
+4 = 'main'
+5 = 'main'
+6 = ['secondary', 'main']
+7 = ['secondary', 'main']
+8 = ['secondary', 'main']
+9 = ['secondary', 'main']
+A = 'main'
+T = 'main'
+N = 'main'
+P = 'main'
+D = 'main'
+V = 'main'
+R = 'main'
