@@ -10,6 +10,7 @@ local options = {
   expandtab = true, -- exapand tab to spaces
   autoindent = true, -- copy indent from current line when starting new one
   backspace = "indent,eol,start", -- allow backspace on indent, end of line or insert mode start position
+  smartindent = true,
 
   -- line wrapping
   wrap = false, -- disable line wrapping

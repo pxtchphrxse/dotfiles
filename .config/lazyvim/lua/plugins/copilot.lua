@@ -1,5 +1,6 @@
 return {
   "zbirenbaum/copilot.lua",
+  enabled = false,
   opts = function(_, opts)
     local node_path = vim.env.NVIM_COPILOT_NODE_PATH
     if node_path ~= nil or node_path ~= "" then

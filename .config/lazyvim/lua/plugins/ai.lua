@@ -4,20 +4,8 @@ return {
     event = "VeryLazy",
     version = false, -- Never set this value to "*"! Never!
     opts = {
-      provider = "ollama",
-      ollama = {
-        endpoint = "http://127.0.0.1:11434",
-        model = "hhao/qwen2.5-coder-tools:1.5b",
-      },
-      vendors = {
-
-        openrouter = {
-          __inherited_from = "openai",
-          endpoint = "https://openrouter.ai/api/v1",
-          api_key_name = "OPENROUTER_API_KEY",
-          model = "deepseek/deepseek-r1-zero:free",
-        },
-      },
+      provider = "gemini",
+      vendors = {},
     },
     file_selector = {
       provider = "fzf",
