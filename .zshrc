@@ -92,7 +92,8 @@ autoload -Uz compinit && compinit
 zinit cdreplay -q
 
 # powerlevel10k
-source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+zinit ice depth=1; zinit light romkatv/powerlevel10k
+# source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 # powerlevel10k end
@@ -145,7 +146,7 @@ zinit ice src="fzf-tab.zsh"; zinit light Aloxaf/fzf-tab
 eval $(thefuck --alias)
 eval $(thefuck --alias fk)
 
- eval "$(/usr/libexec/path_helper)"
+ # eval "$(/usr/libexec/path_helper)"
 
 # bun completions
 [ -s "/Users/pxtchphrxse/.bun/_bun" ] && source "/Users/pxtchphrxse/.bun/_bun"
