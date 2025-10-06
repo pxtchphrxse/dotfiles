@@ -59,7 +59,12 @@ end
 
 opt.iskeyword:append("-")
 opt.whichwrap:append("<,>,[,],h,l")
-opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+
+if vim.fn.has("mac") then
+  opt.clipboard = "unnamedplus" -- use system clipboard as default register
+elseif vim.fn.has("linux") and os.getenv("WAYLAND_DISPLAY") then
+  opt.clipboard = "wl-copy"
+end
 
 vim.cmd("syntax enable")
 
