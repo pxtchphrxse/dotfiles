@@ -1,0 +1,27 @@
+(defcfg
+  process-unmapped-keys yes
+)
+
+(defsrc
+  caps ;; Remap Caps lock to Left Control
+  lshift
+  rshift
+)
+
+(deflayer main
+  lctl ;; Remap Caps lock to Left Control
+  @lshiftcaps
+  @rshiftcaps
+)
+
+(defalias
+  lshiftcaps (chord mainchords lshift)
+  rshiftcaps (chord mainchords rshift)
+)
+
+;; Press Lshift and Rshift together to toggle Caps Lock
+(defchords mainchords 200
+  (lshift ) lshift
+  (rshift) rshift
+  (lshift rshift) caps
+)
