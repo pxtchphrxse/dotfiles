@@ -55,14 +55,6 @@ export VISUAL=nvim
 eval "$(fnm env --use-on-cd --shell zsh)"
 # fvm end
 
-# pnpm
-export PNPM_HOME="/Users/pxtchphrxse/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
 # history options
 bindkey -e
 bindkey '^p' history-search-backward
