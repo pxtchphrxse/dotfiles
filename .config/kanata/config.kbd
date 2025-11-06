@@ -2,21 +2,29 @@
   process-unmapped-keys yes
 )
 
+(defvar
+  tap-time 200
+  hold-time 150
+)
+
 (defsrc
   caps ;; Remap Caps lock to Left Control
   lshift
   rshift
+  tab
 )
 
 (deflayer main
   lctl ;; Remap Caps lock to Left Control
   @lshiftcaps
   @rshiftcaps
+  @tabhyper
 )
 
 (defalias
   lshiftcaps (chord mainchords lshift)
   rshiftcaps (chord mainchords rshift)
+  tabhyper (tap-hold $tap-time $hold-time tab (multi lshift lctrl lalt lmeta))
 )
 
 ;; Press Lshift and Rshift together to toggle Caps Lock
