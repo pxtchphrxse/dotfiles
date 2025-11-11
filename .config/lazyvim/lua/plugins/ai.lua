@@ -2,6 +2,7 @@ return {
   {
     "yetone/avante.nvim",
     event = "VeryLazy",
+    enabled = false,
     version = false, -- Never set this value to "*"! Never!
     opts = {
       provider = "gemini",
@@ -20,7 +21,7 @@ return {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
       --- The below dependencies are optional,
-      "ibhagwan/fzf-lua", -- for file_selector provider fzf
+      "ibhagwan/fzf-lua",            -- for file_selector provider fzf
       "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
       {
         -- support for image pasting

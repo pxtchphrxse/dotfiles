@@ -3,3 +3,5 @@
 .config/nvim/vue3-project.txt
 .config/lazygit/state.yml
 .config/nvim/lazy-lock.json
+.config/thefuck/__pycache__
+.secret.zsh
