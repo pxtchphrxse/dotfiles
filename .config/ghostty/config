@@ -6,7 +6,7 @@ macos-option-as-alt = true
 font-family = "FiraCode Nerd Font Mono Reg"
 font-family-bold = "FiraCode Nerd Font Mono Bold"
 
-font-size = 19
+font-size = 15
 
 palette = 0=#4C566A
 palette = 1=#ef596f

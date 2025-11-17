@@ -5,3 +5,4 @@
 .config/nvim/lazy-lock.json
 .config/thefuck/__pycache__
 .secret.zsh
+.config/DankMaterialShell
