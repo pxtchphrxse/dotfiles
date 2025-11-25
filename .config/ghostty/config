@@ -33,3 +33,6 @@ cursor-text = "#3B4252"
 cursor-style = block
 
 background-opacity = 0.95
+
+# Dank color generation
+# config-file = ./config-dankcolors
