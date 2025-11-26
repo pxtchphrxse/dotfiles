@@ -67,7 +67,19 @@ return {
         },
         tailwindcss = {},
         html = {},
-        cssls = {},
+        stylelint_lsp = {
+          filetypes = { "css", "scss", "less", "postcss" },
+          root_dir = require("lspconfig").util.root_pattern("package.json", ".git"),
+          settings = {
+            stylelintplus = {},
+          },
+        },
+        cssls = {
+          settings = {
+            css = { validate = false },
+            scss = { validate = false },
+          },
+        },
         bashls = {},
         dockerls = {},
         -- volar = {
