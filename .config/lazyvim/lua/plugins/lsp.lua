@@ -28,8 +28,20 @@ return {
       keys[#keys + 1] = { "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", desc = "Jump Previous" }
       keys[#keys + 1] = { "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", desc = "Jump Next" }
       keys[#keys + 1] = { "<leader>la", "<cmd>Lspsaga code_action<CR>", desc = "Code Action" }
-      keys[#keys + 1] = { "<leader>ld", "<cmd>FzfLua lsp_document_diagnostics<cr>", desc = "Document Diagnostics" }
-      keys[#keys + 1] = { "<leader>lw", "<cmd>FzfLua lsp_workspace_diagnostics<cr>", desc = "Document Diagnostics" }
+      keys[#keys + 1] = {
+        "<leader>ld",
+        function()
+          Snacks.picker.diagnostics_buffer()
+        end,
+        desc = "Document Diagnostics",
+      }
+      keys[#keys + 1] = {
+        "<leader>lw",
+        function()
+          Snacks.picker.diagnostics()
+        end,
+        desc = "Document Diagnostics",
+      }
       keys[#keys + 1] = { "<leader>li", "<cmd>LspInfo<cr>", desc = "Lsp Info" }
       keys[#keys + 1] = { "<leader>lI", "<cmd>Mason<cr>", desc = "Mason" }
       keys[#keys + 1] = { "<leader>lj", "<cmd>Lspsaga diagnostic_jump_next<cr>", desc = "Next Diagnostic" }
@@ -39,8 +51,20 @@ return {
       keys[#keys + 1] = { "<leader>lr", "<cmd>Lspsaga rename<cr>", desc = "Rename" }
       keys[#keys + 1] = { "<leader>lR", "<cmd>LspRestart<cr>", desc = "Restart Lsp" }
       keys[#keys + 1] = { "<leader>lo", "<cmd>Lspsaga outline<cr>", desc = "Lspsaga Outline" }
-      keys[#keys + 1] = { "<leader>ls", "<cmd>FzfLua lsp_document_symbols<cr>", desc = "Document Symbols" }
-      keys[#keys + 1] = { "<leader>lS", "<cmd>FzfLua lsp_workspace_symbols<cr>", desc = "Workspace Symbols" }
+      keys[#keys + 1] = {
+        "<leader>ls",
+        function()
+          Snacks.picker.lsp_symbols({ filter = LazyVim.config.kind_filter })
+        end,
+        desc = "Document Symbols",
+      }
+      keys[#keys + 1] = {
+        "<leader>lS",
+        function()
+          Snacks.picker.lsp_workspace_symbols({ filter = LazyVim.config.kind_filter })
+        end,
+        desc = "Workspace Symbols",
+      }
       keys[#keys + 1] = { "<leader>ln", "<cmd>ConformInfo<cr>", desc = "Conform Info" }
     end,
     opts = {

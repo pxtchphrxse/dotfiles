@@ -40,7 +40,7 @@ return {
       integrations = {
         grep_in_directory = function(directory)
           -- the default implementation uses telescope if available, otherwise nothing
-          return FzfLua.files({ cwd = directory })
+          return Snacks.picker.grep({ cwd = directory })
         end,
       },
     },
