@@ -2,10 +2,10 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-local opts = { noremap = true, silent = true }
+local opts = { noremap = true, silent = true, desc = "which_key_ignore" }
 
 local keymap = function(mode, lhs, rhs)
-  vim.api.nvim_set_keymap(mode, lhs, rhs, opts)
+	vim.api.nvim_set_keymap(mode, lhs, rhs, opts)
 end
 
 ---------------------
@@ -49,10 +49,6 @@ keymap("n", "<C-j>", "<C-w>j")
 keymap("n", "<C-k>", "<C-w>k")
 keymap("n", "<C-l>", "<C-w>l")
 
--- buffer navigation
-keymap("n", "<S-l>", ":BufferLineCycleNext<CR>")
-keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>")
-
 -- increment/decrement numbers
 keymap("n", "<leader>+", "<C-a>") -- increment
 keymap("n", "<leader>-", "<C-x>") -- decrement
@@ -74,6 +70,9 @@ keymap("n", "<C-f>", "<C-f>zz")
 keymap("n", "<C-b>", "<C-b>zz")
 keymap("n", "<C-d>", "<C-d>zz")
 keymap("n", "<C-u>", "<C-u>zz")
+
+-- clear highligh on escape
+keymap("n", "<ESC>", "<Esc><cmd>nohlsearch<CR>")
 
 ---------------------
 -- Visual Mode

@@ -1,0 +1,49 @@
+local M = {}
+
+M.action = setmetatable({}, {
+	__index = function(_, action)
+		return function()
+			vim.lsp.buf.code_action({
+				apply = true,
+				context = {
+					only = { action },
+					diagnostics = {},
+				},
+			})
+		end
+	end,
+})
+
+function M.execute(opts)
+	local params = {
+		command = opts.command,
+		arguments = opts.arguments,
+	}
+	return vim.lsp.buf_request(0, "workspace/executeCommand", params, opts.handler)
+end
+
+function M.set_lsp_keymaps(filter, spec)
+	local Keys = require("lazy.core.handler.keys")
+	for _, keys in pairs(Keys.resolve(spec)) do
+		local filters = {} ---@type vim.lsp.get_clients.Filter[]
+		if keys.has then
+			local methods = type(keys.has) == "string" and { keys.has } or keys.has --[[@as string[] ]]
+			for _, method in ipairs(methods) do
+				method = method:find("/") and method or ("textDocument/" .. method)
+				filters[#filters + 1] = vim.tbl_extend("force", vim.deepcopy(filter), { method = method })
+			end
+		else
+			filters[#filters + 1] = filter
+		end
+
+		for _, f in ipairs(filters) do
+			local opts = Keys.opts(keys)
+			---@cast opts snacks.keymap.set.Opts
+			opts.lsp = f
+			opts.enabled = keys.enabled
+			Snacks.keymap.set(keys.mode or "n", keys.lhs, keys.rhs, opts)
+		end
+	end
+end
+
+return M
