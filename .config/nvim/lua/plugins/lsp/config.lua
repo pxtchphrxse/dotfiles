@@ -2,16 +2,33 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		event = { "BufReadPre", "BufNewFile" },
-		config = function(_, opts)
+		dependencies = {
+			"mason-org/mason.nvim",
+			{ "mason-org/mason-lspconfig.nvim", config = function() end },
+		},
+		opts = {
+			servers = {
+				dockerls = {},
+				bashls = {},
+			},
+		},
+		config = vim.schedule_wrap(function(_, opts)
 			for server, server_opts in pairs(opts.servers) do
 				if type(server_opts) == "table" and server_opts.keys then
 					require("utils").set_lsp_keymaps({ name = server ~= "*" and server or nil }, server_opts.keys)
 				end
 
+				local install_list = vim.tbl_keys(opts.servers)
+				require("mason").setup()
+				require("mason-lspconfig").setup({
+					ensure_installed = install_list,
+					automatic_enable = false,
+				})
+
 				vim.lsp.config(server, server_opts)
 				vim.lsp.enable(server)
 			end
-		end,
+		end),
 		keys = {
 			{ "gf", "<cmd>Lspsaga finder<cr>", desc = "Lsp Finder" },
 			{ "gd", "<cmd>Lspsaga goto_definition<cr>", desc = "Go to Definition" },
