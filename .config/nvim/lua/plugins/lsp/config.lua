@@ -1,3 +1,5 @@
+local icons = require("utils.icons")
+
 return {
 	{
 		"neovim/nvim-lspconfig",
@@ -7,6 +9,26 @@ return {
 			{ "mason-org/mason-lspconfig.nvim", config = function() end },
 		},
 		opts = {
+			diagnostics = {
+				underline = true,
+				update_in_insert = false,
+				virtual_text = {
+					spacing = 4,
+					source = "if_many",
+					prefix = "●",
+					-- this will set set the prefix to a function that returns the diagnostics icon based on the severity
+					-- prefix = "icons",
+				},
+				severity_sort = true,
+				signs = {
+					text = {
+						[vim.diagnostic.severity.ERROR] = icons.diagnostics.Error,
+						[vim.diagnostic.severity.WARN] = icons.diagnostics.Warn,
+						[vim.diagnostic.severity.HINT] = icons.diagnostics.Hint,
+						[vim.diagnostic.severity.INFO] = icons.diagnostics.Info,
+					},
+				},
+			},
 			servers = {
 				dockerls = {},
 				bashls = {},
@@ -24,6 +46,8 @@ return {
 					ensure_installed = install_list,
 					automatic_enable = false,
 				})
+
+				vim.diagnostic.config(opts.diagnostics)
 
 				vim.lsp.config(server, server_opts)
 				vim.lsp.enable(server)
