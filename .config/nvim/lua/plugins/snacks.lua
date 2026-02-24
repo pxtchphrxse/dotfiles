@@ -38,7 +38,7 @@ return {
 			enabled = true,
 			preset = dashboard_preset,
 		},
-		explorer = { enabled = true },
+		explorer = { enabled = false },
 		indent = { enabled = true },
 		input = { enabled = true },
 		picker = { enabled = true },
@@ -367,22 +367,5 @@ return {
 			end,
 			desc = "Colorschemes",
 		},
-		-- explorer
-		{
-			"<leader>fe",
-			function()
-				Snacks.explorer({ filter = { cwd = true }, hidden = true })
-			end,
-			desc = "Explorer (root dir)",
-		},
-		{
-			"<leader>fE",
-			function()
-				Snacks.explorer()
-			end,
-			desc = "Explorer (cwd)",
-		},
-		{ "<leader>e", "<leader>fe", desc = "Explorer Snacks (root dir)", remap = true },
-		{ "<leader>E", "<leader>fE", desc = "Explorer Snacks (cwd)", remap = true },
 	},
 }
