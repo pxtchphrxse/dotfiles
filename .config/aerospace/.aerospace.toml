@@ -34,6 +34,10 @@ outer.right = 6
 
 # Normal Mode
 [mode.main.binding]
+# Disable annoying and useless "hide application" shortcut
+cmd-h = [] # Disable "hide application"
+cmd-alt-h = [] # Disable "hide others"
+
 alt-slash = 'layout tiles horizontal vertical'
 alt-comma = 'layout accordion horizontal vertical'
 
