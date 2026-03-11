@@ -94,6 +94,10 @@ return {
 					},
 				},
 				vtsls = {
+					on_attach = function(client, bufnr)
+						client.server_capabilities.documentFormattingProvider = false
+						client.server_capabilities.documentRangeFormattingProvider = false
+					end,
 					-- explicitly add default filetypes, so that we can extend
 					-- them in related extras
 					filetypes = {
